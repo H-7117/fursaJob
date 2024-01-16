@@ -1,0 +1,1895 @@
+@font-face {
+    font-family: 'Tajawal';
+    src: url('../fonts/tajawal/Tajawal-Light.ttf') format('truetype');
+    /* Add additional src lines for other font variations if available */
+    font-weight: normal;
+    font-style: normal;
+  }
+  :root {
+    --primary-color: rgb(60, 101, 245);
+    --secoundery-color: #2a68ab;
+    --primary-bg :#f6ffff;
+    --shadow-color: rgba(0, 0, 0.2);
+    --main-color: #fff;
+    --font-first: #05264e;
+    --font-secound: #4f5e7d;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    /* background-color: #ccc; */
+    box-sizing: border-box;
+    font-family: "Tajawal" !important;
+  }
+  h1,h2,h3,h4,h5,h6{
+    font-family: "Tajawal" !important;
+  }
+  /* ============================================= */
+  #jobBody{
+    background-color: var(--main-color);
+  }
+  header {
+    position: fixed;
+    top: 0;
+    height: 80px;
+    width: 100%;
+    background-color: var(--main-color);
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    z-index: 5;
+  }
+  .header.scrolled {
+    box-shadow: 0px 0 100px rgba(0, 0, 0, 0.1);
+    transition: background-color 200ms linear;
+  }
+  
+  .logo {
+    width: 100px;
+    margin-left: 100px;
+  }
+  .logo img {
+    height: 90px;
+    width: 100px;
+  }
+  
+  .links ol {
+    list-style: none;
+    padding: 10px;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  .links {
+    position: relative;
+    right: -20%;
+    top: 20px;
+  }
+  .links ol li {
+    
+    font-weight: 900;
+    display: inline-block;
+    margin: 0px 20px;
+  }
+  .links ol li a {
+    color: black;
+    font-size: 20px;
+    text-decoration: none;
+  }
+  .links ol li a:hover{
+    color: var(--primary-color);
+  }
+  .Login_register {
+    position: relative;
+    left: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .Login_register button {
+    z-index: 5;
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 12px 10px;
+    border: none;
+    font-family: "Tajawal";
+    background: var(--primary-color);
+    color: var(--main-color);
+  }
+  .Login_register button a{
+    
+    text-decoration: none;
+    color: white;
+  }
+  .Login_register button:hover a{
+    text-decoration: none;
+    color: white;
+  }
+  
+  .Login_register a {
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 14px 24px;
+    color: black;
+    text-decoration: underline solid;
+  }
+  .Login_register a:hover {
+    text-decoration: underline dotted;
+    animation-name: text-up;
+    animation-duration: 1s;
+    color: var(--primary-color);
+  } 
+  
+  @keyframes text-up {
+    0% {
+      transform: translateY(0px);
+    }
+  
+    100% {
+      transform: translateY(-4px);
+    }
+  }
+  
+  
+  
+  @media screen and (max-width: 1192px) {
+    
+    body {
+      /* background-color: #ccc; */
+      box-sizing: border-box !important;
+      font-family: "Tajawal" !important;
+      overflow-x: hidden !important;
+    }
+    .links{
+      right: -200px;
+      
+    }
+    .links ol{
+      width: 400px;
+    }
+  }
+  
+  @media screen and (max-width: 1092px) {
+    .links{
+      right: -100px;
+      
+    }
+    .links ol{
+      width: 400px;
+    }
+  }
+  @media screen and (max-width: 992px) {
+    .links{
+      right: -130px;
+    }
+  }
+  
+  @media screen and (max-width: 852px) {
+    .links{
+      right: -110px;
+    }
+  
+  }
+  
+  @media screen and (max-width: 768px) {
+    .links{
+      display: none;
+    }
+  }
+   
+  /* ======================================================================= */
+  .hero {
+    background: var(--main-color);
+    height: 100vh;
+    width: 100%;
+    margin-top: 80px;
+    
+  }
+  
+  .hero .inside {
+    width: 70%;
+    margin: 0 auto;
+    padding-top: 150px;
+    text-align: center;
+    margin-bottom: 28px;
+  }
+  .hero .inside h1 {
+    font-size: 50px;
+    font-weight: 700;
+    color: var(--font-first);
+    direction: rtl;
+  }
+  .hero .inside h1 span {
+    position: relative;
+    z-index: 2;
+    color: var(--primary-color);
+  }
+  
+  .hero .inside h1 span::after {
+    content: "";
+    position: absolute;
+    width: 295px;
+    height: 20px;
+    background: #3c65f5;
+    transform: skewY(40px);
+    right: 0;
+    opacity: 0.2;
+    bottom: 0;
+    z-index: 1;
+  }
+  /* =============================== */
+  .USB img{
+    position: absolute;
+    height: 790px;
+    width: 1000px;
+    top: -250px !important;
+    right: 0;
+  }
+  
+  @media screen and (max-width: 1535px) {
+    .USB{
+      position: relative !important;
+    }
+    .USB img{
+      /* background-color: #1a0000 !important; */
+      position: absolute !important;
+      height: 668px !important;
+      width: 1000px !important;
+      top: -238px !important;
+      right: 0;
+    } 
+   
+  }
+  @media screen and (max-width: 1542px) {
+    .USB{
+      position: relative !important;
+    }
+    .USB img{
+      position: absolute;
+      height: 690px;
+      width: 1000px;
+      top: -278px !important;
+      right: 0;
+    }
+    
+  }
+  @media screen and (max-width: 1252px) {
+    .Login_register {
+      position: relative;
+      left: 20px !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      /* background-color: #1a0000 !important; */
+  }
+    .hero .inside h1{
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--font-first);
+      direction: rtl;
+      
+    }
+    .hero .inside h1 span::after {
+      content: "";
+      position: absolute;
+      width: 235px;
+      height: 20px;
+    
+    }
+    .USB img{
+      position: absolute;
+      height: 790px;
+      width: 1000px;
+      top: -278px !important;
+      right: 0;
+    } 
+   
+  }
+  @media screen and (max-width: 1102px) {
+    .Login_register {
+      position: relative;
+      left: 62px !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+  }
+  .HTA{
+    height: 120vh !important;
+    overflow: hidden !important;
+  }
+  .services{
+    height: 100vh !important;
+    margin-top: 50px;
+    direction: rtl;
+    display: block !important;
+    width: 200% !important;
+    padding: 0 30px;
+    box-sizing: border-box;
+    position: relative !important;
+    right: 550px !important;
+    /* background-color: #1a0000; */
+   
+  }
+  .services_card{
+    padding: 5px !important;
+    margin-bottom: 100px !important;
+  
+  }
+  .services_card i{
+    margin-top: 20px ;
+  }
+  .Login_register button {
+    z-index: 5;
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px !important;
+    line-height: 20px !important;
+    font-weight: 600 !important;
+    border-radius: 8px !important;
+    padding: 12px 5px !important;
+    width: 135px !important;
+    border: none;
+    font-family: "Tajawal";
+    background: var(--primary-color);
+    color: var(--main-color);
+  }
+    .search{
+      position: relative;
+      display: flex;
+      flex-direction: row-reverse;
+      margin: 0 auto;
+      width: 905px !important;
+      height: 63px;
+      justify-content: end;
+      align-items: center;
+      
+      box-shadow: 0 4px 6px 2px rgba(100, 96, 96, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      border-radius: 8px;
+    padding: 0 10px;
+    }
+    
+    .first-left select {
+      width: 210px !important;
+      height: 35px !important;
+      color: #333;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+      border: none;
+      font-size: 20px;
+    }
+    .search i{
+        margin: 15px 5px !important;
+        color: #a0abb8;
+    }
+    .second-left select {
+      width: 210px !important;
+      height: 35px !important;
+      border: 1px solid #1a0000;
+      border-radius: 5px;
+      cursor: pointer;
+      border: none;
+      font-size: 20px;
+    }
+  
+    .thred-left {
+      display: flex;
+      width: 350px !important;
+  
+    }
+    .thred-left input {
+      font-size: 16px;
+      line-height: 26px;
+      padding: 8px 16px;
+      width: 100% !important;
+      height: 25px !important;
+      border: unset;
+      outline: none;
+      border-radius: 4px;
+      background-color: rgb(255, 255, 255);
+    }
+  
+    .search .btn {
+      position: absolute;
+      left: 0;
+    }
+    .search .btn button{
+      font-family: "Tajawal";
+        display: inline-block;
+        position: relative;
+        outline: none;
+        cursor: pointer;
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 600;
+        border-radius: 8px;
+        margin: 0 10px;
+        padding: 12px 20px !important;
+        border: none;
+        background: var(--primary-color);
+        color: var(--main-color);
+    }
+  
+    .search .btn i{
+      position: absolute;
+      color: white;
+      font-size: 10px;
+      top: 2px !important;
+      right: 12px !important;
+    }
+  }
+  @media screen and (max-width: 995px) {
+    .USB {
+      position: relative !important;
+      height: 40vh !important;
+    } 
+
+    .USB img{
+      top: -254px !important;
+      
+    }
+    .jobTarget{
+      width: 48% !important;
+    }
+    .jobs{
+      height: 150vh !important;
+    }
+    .features{
+      background-color: #5c92d0 !important;
+      display: block !important;
+      height: 125vh !important;
+    }
+    .Login_register {
+      position: relative;
+      left: 42px !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+  }
+    .apply{
+      height: 150vh !important;
+    }
+  .features .featuresApply {
+    text-align: center;
+    padding: 25px 10px;
+    background-color: transparent;
+    margin-bottom: 100px;
+    width: 80% !important;
+    height: 250px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+  .USB{
+    height: 62.8vh !important;
+  }
+  
+    .hero .inside h1{
+      width: p;
+      font-size: 35px;
+      font-weight: 700;
+      color: var(--font-first);
+      direction: rtl;
+      
+    }
+    .hero .inside h1 span::after {
+      content: "";
+      position: absolute;
+      width: 205px;
+      height: 20px;
+    
+    }
+    .search{
+      position: relative;
+      display: flex;
+      flex-direction: row-reverse;
+      margin: 0 auto;
+      width: 805px !important;
+      height: 63px;
+      justify-content: end;
+      align-items: center;
+      box-shadow: 0 4px 6px 2px rgba(100, 96, 96, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      border-radius: 8px;
+    padding: 0 10px;
+    }
+  
+    
+    .first-left select {
+      width: 170px !important;
+      height: 35px !important;
+      color: #333;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+      border: none;
+      font-size: 20px;
+    }
+    .search i{
+        margin: 15px 5px !important;
+        color: #a0abb8;
+    }
+    .second-left select {
+      width: 170px !important;
+      height: 35px !important;
+      border: 1px solid #1a0000;
+      border-radius: 5px;
+      cursor: pointer;
+      border: none;
+      font-size: 20px;
+    }
+  
+    .thred-left {
+      display: flex;
+      width: 325px !important;
+  
+    }
+    .thred-left input {
+      font-size: 16px;
+      line-height: 26px;
+      padding: 8px 16px;
+      width: 100% !important;
+      height: 25px !important;
+      border: unset;
+      outline: none;
+      border-radius: 4px;
+      background-color: rgb(255, 255, 255);
+    }
+  
+    .search .btn {
+      position: absolute;
+      left: 0;
+    }
+    .search .btn button{
+      font-family: "Tajawal";
+        display: inline-block;
+        position: relative;
+        outline: none;
+        cursor: pointer;
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 600;
+        border-radius: 8px;
+        margin: 0 10px;
+        padding: 12px 20px !important;
+        border: none;
+        background: var(--primary-color);
+        color: var(--main-color);
+    }
+  
+    .search .btn i{
+      position: absolute;
+      color: white;
+      font-size: 10px;
+      top: 2px !important;
+      right: 12px !important;
+    }
+
+   
+  
+  }
+
+  @media screen and (max-width: 972px){
+    .US{
+      min-height: 45vh;
+    }
+   
+    .services{
+      margin-top: 50px;
+      direction: rtl;
+      height: 130vh !important;
+      display: block !important;
+      width: 200% !important;
+      padding: 0 30px;
+      box-sizing: border-box;
+      position: relative !important;
+      right: 450px !important;
+    }
+  }
+  @media screen and (max-width: 864px) {
+    
+    .Login_register {
+      position: relative;
+      left: 75px !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      /* background-color: #1a0000 !important; */
+  }
+  .USB{
+    background-image: url('./image/Animated\ Shape.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 77.7vh;
+    width: 100%;
+    position: relative;
+  }
+  
+  .HTA{
+    height: 120vh !important;
+  }
+  .services{
+    margin-top: 50px;
+    direction: rtl;
+    display: block !important;
+    width: 200% !important;
+    padding: 0 30px;
+    box-sizing: border-box;
+    position: relative !important;
+    right: 400px !important;
+  }
+    .hero .inside h1{
+      display: block;
+      width: 110%;
+      position: relative;
+      right: 20px;
+      top: -10px;
+      font-weight: 700;
+      color: var(--font-first);
+      direction: rtl;
+      
+    }
+    .hero .inside h1 span::after {
+      content: "";
+      position: absolute;
+      width: 205px;
+      height: 20px;
+    
+    }
+    .search{
+      position: relative;
+      display: flex;
+      flex-direction: row-reverse;
+      margin: 0 auto;
+      width: 705px !important;
+      height: 63px;
+      justify-content: end;
+      align-items: center;
+      
+      box-shadow: 0 4px 6px 2px rgba(100, 96, 96, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      border-radius: 8px;
+    padding: 0 10px;
+    }
+    
+  
+    
+    .first-left select {
+      width: 140px !important;
+      height: 35px !important;
+      color: #333;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+      border: none;
+      font-size: 20px;
+    }
+    .search i{
+        margin: 15px 5px !important;
+        color: #a0abb8;
+    }
+    .second-left select {
+      width: 140px !important;
+      height: 35px !important;
+      border: 1px solid #1a0000;
+      border-radius: 5px;
+      cursor: pointer;
+      border: none;
+      font-size: 20px;
+    }
+  
+    .thred-left {
+      display: flex;
+      width: 290px !important;
+  
+    }
+    .thred-left input {
+      font-size: 16px;
+      line-height: 26px;
+      padding: 8px 16px;
+      width: 100% !important;
+      height: 25px !important;
+      border: unset;
+      outline: none;
+      border-radius: 4px;
+      background-color: rgb(255, 255, 255);
+    }
+  
+    .search .btn {
+      position: absolute;
+      left: 0;
+    }
+    .search .btn button{
+      font-family: "Tajawal";
+        display: inline-block;
+        position: relative;
+        outline: none;
+        cursor: pointer;
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 600;
+        border-radius: 8px;
+        margin: 0 10px;
+        padding: 12px 20px !important;
+        border: none;
+        background: var(--primary-color);
+        color: var(--main-color);
+    }
+  
+    .search .btn i{
+      position: absolute;
+      color: white;
+      font-size: 10px;
+      top: 2px !important;
+      right: 12px !important;
+    }
+  }
+  
+  @media screen and (max-width: 779px) {
+    .HTA{
+      height: 120vh !important;
+    }
+
+    .HTA h1  {
+      font-size: 55px !important;
+    }
+    
+    .HTA  h1 span::after {
+      width: 435px !important;
+    }
+    
+    .services{
+      margin-top: 50px;
+      direction: rtl;
+      display: block !important;
+      width: 200% !important;
+      padding: 0 30px;
+      box-sizing: border-box;
+      position: relative !important;
+      right: 350px !important;
+    }
+    .HTA{
+      height: 110vh !important;
+    }
+    .services{
+      margin-top: 50px;
+      direction: rtl;
+      height: 130vh !important;
+      display: block !important;
+      width: 200% !important;
+      padding: 0 30px;
+      box-sizing: border-box;
+      position: relative !important;
+      right: 400px !important;
+    }
+    .Login_register {
+      position: relative;
+      left: 105px !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+  }
+    .hero .inside h1{
+      display: block;
+      width: 120%;
+      position: relative;
+      right: 20px;
+      top: -10px;
+      font-weight: 700;
+      color: var(--font-first);
+      direction: rtl;
+      
+    }
+    .hero .inside h1 span::after {
+      content: "";
+      position: absolute;
+      width: 205px;
+      height: 20px;
+    
+    }
+    .search{
+      position: relative;
+      display: flex;
+      flex-direction: row-reverse;
+      margin: 0 auto;
+      width: 600px !important;
+      height: 63px;
+      justify-content: end;
+      align-items: center;
+      box-shadow: 0 4px 6px 2px rgba(100, 96, 96, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      border-radius: 8px;
+    padding: 0 10px;
+    }
+  
+    .first-left select {
+      width: 110px !important;
+      height: 35px !important;
+      color: #333;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+      border: none;
+      font-size: 20px;
+    }
+    .search i{
+        margin: 15px 5px !important;
+        color: #a0abb8;
+    }
+    .second-left select {
+      width: 110px !important;
+      height: 35px !important;
+      border: 1px solid #1a0000;
+      border-radius: 5px;
+      cursor: pointer;
+      border: none;
+      font-size: 20px;
+    }
+  
+    .thred-left {
+      display: flex;
+      width: 245px !important;
+  
+    }
+    .thred-left input {
+      font-size: 16px;
+      line-height: 26px;
+      padding: 8px 16px;
+      width: 100% !important;
+      height: 25px !important;
+      border: unset;
+      outline: none;
+      border-radius: 4px;
+      background-color: rgb(255, 255, 255);
+    }
+  
+    .search .btn {
+      position: absolute;
+      left: 0;
+    }
+    .search .btn button{
+      font-family: "Tajawal";
+        display: inline-block;
+        position: relative;
+        outline: none;
+        cursor: pointer;
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 600;
+        border-radius: 8px;
+        margin: 0 10px;
+        padding: 12px 20px !important;
+        border: none;
+        background: var(--primary-color);
+        color: var(--main-color);
+    }
+  
+    .search .btn i{
+      position: absolute;
+      color: white;
+      font-size: 10px;
+      top: 2px !important;
+      right: 12px !important;
+    }
+   
+  }
+  @media screen and (max-width: 768px) {
+   
+    .Login_register {
+      position: relative;
+      left: -10px !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      /* background-color: #1a0000 !important; */
+  }
+  }
+  @media screen and (max-width: 724px) {
+  
+    .HTA{
+      height: 120vh !important;
+    }
+    .services{
+      margin-top: 50px;
+      direction: rtl;
+      display: block !important;
+      width: 200% !important;
+      padding: 0 30px;
+      box-sizing: border-box;
+      position: relative !important;
+      right: 350px !important;
+    }
+    .hero .inside h1{
+      display: block;
+      width: 120%;
+      position: relative;
+      right: 20px;
+      top: -10px;
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--font-first);
+      direction: rtl;
+      
+    }
+    .hero .inside h1 span::after {
+      content: "";
+      position: absolute;
+      width: 170px;
+      height: 15px;
+    
+    }
+    .search{
+      position: relative;
+      display: flex;
+      flex-direction: row-reverse;
+      margin: 0 auto;
+      width: 600px !important;
+      height: 63px;
+      justify-content: end;
+      align-items: center;
+      
+      box-shadow: 0 4px 6px 2px rgba(100, 96, 96, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      border-radius: 8px;
+    padding: 0 10px;
+    }
+  }
+  
+  
+  
+  @media screen and (max-width: 665px) {
+    .HTA{
+      height: 130vh !important;
+    }
+    .jobTarget{
+      width: 78% !important;
+    }
+    .jobs{
+      height: 240vh !important;
+    }
+    .jobs h1 span {
+      font-size: 3rem;
+    }
+    .jobs h1 span::after {
+      width: 470px !important;
+    }
+    .services{
+      margin-top: 50px;
+      direction: rtl;
+      display: block !important;
+      width: 200% !important;
+      padding: 0 30px;
+      box-sizing: border-box;
+      position: relative !important;
+      right: 320px !important;
+    }
+  
+    .hero .inside h1{
+      display: block;
+      width: 140%;
+      position: relative;
+      right: 80px;
+      top: -10px;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--font-first);
+      direction: rtl;
+      
+    }
+    .search{
+      position: relative;
+      display: flex;
+      flex-direction: row-reverse;
+      margin: 0 auto;
+      width: 500px !important;
+      height: 63px;
+      justify-content: end;
+      align-items: center;
+      box-shadow: 0 4px 6px 2px rgba(100, 96, 96, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      border-radius: 8px;
+      padding: 0 10px;
+    }
+  
+  
+    .first-left select {
+      width: 90px !important;
+      height: 35px !important;
+      color: #333;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+      border: none;
+      font-size: 20px;
+    }
+    .search i{
+        margin: 15px 5px !important;
+        color: #a0abb8;
+    }
+    .second-left select {
+      width: 90px !important;
+      height: 35px !important;
+      border: 1px solid #1a0000;
+      border-radius: 5px;
+      cursor: pointer;
+      border: none;
+      font-size: 20px;
+    }
+  
+    .thred-left {
+      display: flex;
+      width: 200px !important;
+  
+    }
+    .thred-left input {
+      font-size: 16px;
+      line-height: 26px;
+      padding: 8px 16px;
+      width: 100% !important;
+      height: 25px !important;
+      border: unset;
+      outline: none;
+      border-radius: 4px;
+      background-color: rgb(255, 255, 255);
+    }
+  
+    .search .btn {
+      position: absolute;
+      left: 0;
+    }
+    .search .btn button{
+      font-family: "Tajawal";
+        display: inline-block;
+        position: relative;
+        outline: none;
+        cursor: pointer;
+        font-size: 12px !important;
+        line-height: 20px;
+        font-weight: 600;
+        border-radius: 8px;
+        margin: 0 10px;
+        padding: 12px 18px !important;
+        border: none;
+        background: var(--primary-color);
+        color: var(--main-color);
+    }
+  
+    .search .btn i{
+      position: absolute;
+      color: white;
+      font-size: 10px;
+      top: 2px !important;
+      right: 10px !important;
+    }
+  
+  }
+  @media screen and (max-width: 582px) {
+    .HTA{
+      height: 140vh !important;
+    }
+    .services{
+      margin-top: 50px;
+      direction: rtl;
+      display: block !important;
+      width: 200% !important;
+      padding: 0 30px;
+      box-sizing: border-box;
+      position: relative !important;
+      right: 320px !important;
+    }
+    .Login_register {
+      position: relative;
+      left: 10px !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+  }
+    .hero .inside h1{
+      display: block;
+      width: 140%;
+      position: relative;
+      right: 60px;
+      top: -10px;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--font-first);
+      direction: rtl;
+    }
+    .hero .inside h1 span::after {
+      content: "";
+      position: absolute;
+      width: 150px;
+      height: 15px;
+    
+    }
+    .search{
+      position: relative;
+      display: flex;
+      flex-direction: row-reverse;
+      margin: 0 auto;
+      width: 450px !important;
+      height: 63px;
+      justify-content: end;
+      align-items: center;
+      box-shadow: 0 4px 6px 2px rgba(100, 96, 96, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      border-radius: 8px;
+      padding: 0 10px;
+    }
+    .first-left select {
+      width: 80px !important;
+      height: 35px !important;
+      color: #333;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: pointer;
+      border: none;
+      font-size: 20px;
+    }
+    .search i{
+        margin: 15px 5px !important;
+        color: #a0abb8;
+    }
+    .second-left select {
+      width: 80px !important;
+      height: 35px !important;
+      border: 1px solid #1a0000;
+      border-radius: 5px;
+      cursor: pointer;
+      border: none;
+      font-size: 20px;
+    }
+  
+    .thred-left {
+      display: flex;
+      width: 175px !important;
+  
+    }
+    .thred-left input {
+      font-size: 16px;
+      line-height: 26px;
+      padding: 8px 16px;
+      width: 100% !important;
+      height: 25px !important;
+      border: unset;
+      outline: none;
+      border-radius: 4px;
+      background-color: rgb(255, 255, 255);
+    }
+  
+    .search .btn {
+      position: absolute;
+      left: 0;
+    }
+    .search .btn button{
+      font-family: "Tajawal";
+        display: inline-block;
+        position: relative;
+        outline: none;
+        cursor: pointer;
+        font-size: 12px !important;
+        line-height: 20px;
+        font-weight: 500 !important;
+        border-radius: 8px;
+        width: 60px !important;
+        margin: 0 10px;
+        padding: 11px 17px !important;
+        border: none;
+        background: var(--primary-color);
+        color: var(--main-color);
+    }
+  
+    .search .btn i{
+      position: absolute;
+      color: white;
+      font-size: 10px;
+      top: 2px !important;
+      right: 8px !important;
+    }
+  }
+  
+  @media screen and (max-width: 502px) {
+    .hero .inside h1{
+      display: block;
+      width: 140%;
+      position: relative;
+      right: 60px;
+      top: -10px;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--font-first);
+      direction: rtl;
+    }
+    .hero .inside h1 span::after {
+      content: "";
+      position: absolute;
+      width: 150px;
+      height: 15px;
+    
+    }
+    .search{
+      position: relative;
+      display: flex;
+      flex-direction: row-reverse;
+      margin: 0 auto;
+      width: 420px !important;
+      height: 63px;
+      justify-content: end;
+      align-items: center;
+      box-shadow: 0 4px 6px 2px rgba(100, 96, 96, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      border-radius: 8px;
+      padding: 0 10px;
+    }
+  }
+  
+  /* ===================================== */
+  .hero .inside h4 {
+    margin-top: 40px;
+    font-size: 20px;
+    color: var(--font-secound);
+  }
+  
+  .search {
+    position: relative;
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 0 auto;
+    width: 1025px;
+    height: 63px;
+    justify-content: end;
+    align-items: center;
+    
+    box-shadow: 0 4px 6px 2px rgba(100, 96, 96, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border-radius: 8px;
+  padding: 0 10px;
+  }
+  
+  .first-left,
+  .second-left,
+  .thred-left {
+    background-color: white;
+    display: flex;
+  }
+  input,select{
+    font-family: "Tajawal";
+    border: none;
+  }
+  
+  .first-left select {
+    width: 200px;
+    height: 55px;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    font-size: 20px;
+  }
+  .search i{
+      margin: 20px 5px;
+      color: #a0abb8;
+  }
+  
+  .second-left select {
+    width: 300px;
+    height: 55px;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    font-size: 20px;
+  }
+  
+  .thred-left {
+    display: flex;
+    width: 350px;
+    
+  }
+  .thred-left input {
+    font-size: 16px;
+    line-height: 26px;
+    padding: 8px 16px;
+    width: 100%;
+    height: 38px;
+    border: unset;
+    outline: none;
+    border-radius: 4px;
+    background-color: rgb(255, 255, 255);
+   
+  }
+  
+  .search .btn {
+    position: absolute;
+    left: 0;
+  }
+  .search .btn button{
+    font-family: "Tajawal";
+      position: relative;
+      display: inline-block;
+      outline: none;
+      cursor: pointer;
+      font-size: 16px;
+      line-height: 20px;
+      font-weight: 600;
+      border-radius: 8px;
+      margin: 0 10px;
+      padding: 14px 34px;
+      border: none;
+      background: var(--primary-color);
+      color: var(--main-color);
+  }
+  
+  .search .btn i{
+    position: absolute;
+    color: white;
+    top: 2px;
+    right: 29px;
+  }
+  
+  .gg-menu-grid-o {
+    margin-top: 20px;
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform: scale(var(--ggs, 1));
+    width: 16px;
+    height: 16px;
+  }
+  
+  .gg-menu-grid-o::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: currentColor;
+    box-shadow: 0 6px 0, 6px 6px 0, 12px 6px 0, 6px 12px 0, 12px 12px 0, 6px 0 0,
+      12px 0 0, 0 12px 0;
+    border-radius: 22px;
+  }
+  
+  .HTA{
+  background-image: url('../img/Wave\ Line.svg ');
+    height: 80vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .HTA h1  {
+    text-align: center;
+    font-size: 70px;
+    font-weight: 700;
+    color: var(--font-first);
+  }
+  .HTA h1 span {
+    position: relative;
+    z-index: 2;
+    color: var(--primary-color);
+  }
+  
+  .HTA  h1 span::after {
+    content: "";
+    position: absolute;
+    width: 550px;
+    height: 20px;
+    background: #3c65f5;
+    transform: skewY(40px);
+    right: -6px;
+    box-shadow:  0 1px 1px 1px #3c65f5;
+    opacity: 0.2;
+    bottom: 10px;
+    z-index: 1;
+  }
+  
+  .services{
+    margin-top: 50px;
+    direction: rtl;
+    display: flex;
+    width: 100%;
+    padding: 0 30px;
+    box-sizing: border-box;
+  }
+  
+  .services_card{
+    padding: 5px;
+    background-color: var(--main-color);
+    margin-bottom: 100px;
+    width: 30%;
+    min-height: 120px;
+    margin: 0 auto;
+    display: flex;
+    box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
+    border-radius: 8px;
+    position: relative;
+  }
+  
+  .services_card:nth-child(1)::after{
+    position: absolute;
+    content: '1';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    width: 20px;
+    height: 20px;
+    bottom: -10px;
+    left: -10px;
+    width: 50px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: #d3dbf8;
+  }
+  .services_card:nth-child(2)::after{
+    position: absolute;
+    content: '2';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    width: 20px;
+    height: 20px;
+    bottom: -10px;
+    left: -10px;
+    width: 50px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: #d3dbf8;
+  }
+  .services_card:nth-child(3)::after{
+    position: absolute;
+    content: '3';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    width: 20px;
+    height: 20px;
+    bottom: -10px;
+    left: -10px;
+    width: 50px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: #d3dbf8;
+  }
+  .icon{
+    position: relative;
+    height: 100%;
+    width: 30%;
+   color: white;
+   font-size: 50px;
+  position: relative;
+  }
+  .icon i{
+    position: absolute;
+    right: 30%;
+    top: 10%;
+    color: var(--font-secound);
+  }
+  .info{
+    margin-top: 20px;
+    width: 60%;
+  }
+  .services_card .info h2{
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--font-secound);
+  }
+  .services_card .info p{
+    font-size: 14px;
+    color: var(--font-secound);
+    margin-top: 12px;
+  }
+  /* ================================================================== */
+  .US{
+    background-image: url('../img/Animated\ Shape.svg');
+    min-height: 45vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .US h1{
+    /* padding: 50px; */
+    text-align: center;
+    font-size: 70px;
+    font-weight: 900;
+    
+    color: var(--font-first);
+  }
+  
+  .US h1 span {
+    position: relative;
+    z-index: 2;
+    font-weight: 900;
+    color: var(--primary-color);
+  
+  }
+  
+  
+  .US  h1 span::after {
+    content: "";
+    position: absolute;
+    width: 240px;
+    height: 20px;
+    background: #3c65f5;
+    transform: skewY(40px);
+    right: 0px;
+    box-shadow:  0 1px 1px 1px #3c65f5;
+    opacity: 0.2;
+    bottom: 10px;
+    z-index: 1;
+  }
+  
+  .US p{
+    direction: rtl;
+    display: inline-block;
+    text-align: center;
+    padding: 50px 100px;
+    font-size: 24px;
+    font-weight:700 ;
+  }
+  .USB{
+    background-image: url('../img/Animated\ Shape.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 59.2vh;
+    width: 100%;
+    position: relative;
+  }
+
+  .apply {
+    background: rgb(42,104,171);
+    background: linear-gradient(132deg, rgb(92, 146, 208) 56%, rgba(42, 104, 171, 1) 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 80vh;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .apply h1{
+    direction: rtl;
+    padding-top: 120px;
+    text-align: center;
+    font-size: 30px;
+    font-weight:700 ;
+    color: white;
+  }
+  .features{
+    margin-top: 50px;
+    direction: rtl;
+    display: flex;
+    width: 100%;
+    padding: 0 30px;
+    box-sizing: border-box;
+  }
+  .features .featuresApply{
+    text-align: center;
+    padding: 25px 10px;
+    background-color: transparent;
+    margin-bottom: 100px;
+    width: 30%;
+    height: 250px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+  .features .featuresApply:hover{
+    background-color: white;
+    transition: background-color 500ms ease-out;
+    box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
+    color: black;
+  }
+  .featuresApply img{
+    width: 50px;
+    height: 50px;
+  }
+  
+  .featuresApply i{
+    font-size: 100px;
+    color: white;
+   
+  }
+  .featuresApply p{
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight:700 ;
+    color: white;
+    display: block;
+    width: 70%;
+    margin: 20px auto 20px auto;
+  }
+  
+  .features .featuresApply:hover p,
+  .features .featuresApply:hover i{
+    color: #5990ce;
+  }
+  
+  .jobs{
+    /* background: #000; */
+    height: 100vh;
+    width: 100%;
+    padding: 80px 0;
+  }
+  .jobs h1{
+    padding-top: 25px;
+    text-align: center;
+    font-size: 70px;
+    font-weight: 900;
+    color: var(--font-first);
+  }
+  .jobs h1 span {
+    position: relative;
+    z-index: 2;
+    font-weight: 900;
+    color: var(--primary-color);
+  }
+  
+  .jobs h1 span {
+    position: relative;
+    z-index: 2;
+    color: var(--primary-color);
+  }
+  .jobs p{
+    direction: rtl;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 30px;
+    font-weight:700 ;
+  }
+  
+  .jobs h1 span::after {
+    content: "";
+    position: absolute;
+    width: 690px;
+    height: 20px;
+    background: #3c65f5;
+    transform: skewY(40px);
+    right: 0px;
+    box-shadow:  0 1px 1px 1px #3c65f5;
+    opacity: 0.2;
+    bottom: 10px;
+    z-index: 1;
+  }
+  
+  .jobsInfo{
+    margin-top: 50px;
+    direction: rtl;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 0 30px;
+    box-sizing: border-box;
+    
+  }
+  .jobTarget{
+    text-align: center;
+    padding: 25px 10px;
+    margin-bottom: 100px;
+    width: 30%;
+    height: 180px;
+    margin: 0 auto 0px auto;
+    box-sizing: border-box;
+    cursor: pointer;
+    margin-bottom: 40px;
+    background-color: var(--main-color);
+  }
+  .jobTarget i{
+    font-size: 45px;
+    color: lightgray;
+  }
+  .jobTarget a{
+    text-decoration: none;
+    color: black;
+  }
+  .jobTarget p{
+    margin-top: 20px;
+    font-size: 20px;
+  }
+  .jobTarget:hover p,
+  .jobTarget:hover i{
+  color: var(--secoundery-color);
+  }
+  footer{
+    width: 100%;
+    height: 30vh;
+    background-color: black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row-reverse;
+  }
+  
+  footer a{
+    text-decoration: none;
+    color: gray;
+  }
+  .footer1:last-child a{
+    /* background-color: rgb(202, 51, 51); */
+    margin: 0 20px;
+  }
+  
+  
+  
+  /* ============================= */
+  .footer-distributed{
+    border-bottom: 5px solid #d1d5db;
+    background-color:var(--main-color);
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+    width: 80%;
+    margin: 0 auto;
+    height: 40vh;
+    font: bold 16px sans-serif;
+    padding: 55px 50px;
+    box-sizing: border-box;
+  }
+  .footer-left img{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 150px;
+    height: 150px;
+  }
+  
+  .footer-company-name{
+    font-family: "Tajawal" !important;
+    margin-bottom: 14px;
+  }
+  .footer-company-name span{
+    color: var(--primary-color);
+  }
+  
+  .footer-left .footer-links{
+   text-align: center;
+   font-size: 25px;
+  }
+  .footer-left .footer-links a{
+    width: 40px;
+    height: 40px;
+    padding: 10px 12px;
+    border-radius: 8px;
+  }
+  .footer-left .footer-links a:hover{
+    background-color: #d1d5db;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+  }
+  .footer-left .footer-links a:nth-child(1):hover{
+    color: black;
+  }
+  
+  .footer-left .footer-links a:nth-child(2):hover{
+    color: rgb(188, 26, 26);
+  }
+  
+  .footer-left .footer-links a:nth-child(3):hover{
+    color: black;
+  }
+  
+  .footer-left .footer-links a:nth-child(4):hover{
+    color: rgb(37, 72, 159);
+  }
+  /* If you don't want the footer to be responsive, remove these media queries */
+  
+  @media (max-width: 880px) {
+  
+    .footer-distributed{
+      font: bold 14px sans-serif;
+    }
+  
+  }
+  
+  .end{
+    margin-top: 20px;
+    text-align: center;
+    font-weight: 900;
+    --tw-text-opacity: 1;
+    color: rgb(156 163 175 / var(--tw-text-opacity));
+    height: 10vh;
+  }
+  
+  .left-filter{
+    /* background-color: #222; */
+    direction: rtl;
+  }
+
+  .jobContiner {
+    background: var(--main-color);
+    height: 100vh;
+    width: 100%;
+    margin-top: 120px;
+  }
+  .jobContiner h5 {
+    color: #77869b;
+  }
+  .applay {
+    background-color: rgb(60, 101, 245);
+    border: none;
+    padding: 5px 10px;
+    color: white;
+    font-size: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+  }
+
+  .applay:hover {
+    background-color: rgb(115, 141, 233);
+  }
+  .form-switch {
+    margin-bottom: 10px !important;
+  }
+
+  #togglebtn {
+    display: none !important;
+    background-color: rgb(60, 101, 245);
+    border: none;
+    padding: 5px 10px;
+    color: white;
+    font-size: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+  }
+
+  @media screen and (max-width: 868px) {
+    .left-filter {
+      display: none;
+    }
+    #mdd {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: start !important;
+      width: 140% !important;
+    }
+    #events {
+      display: none;
+    }
+    #togglebtn {
+      display: block !important;
+    }
+  }
+
+  @media screen and (max-width: 770px) {
+    #mdd {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: start !important;
+      width: 120% !important;
+    }
+    #togglebtn {
+      display: block !important;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .left-filter {
+      display: none;
+    }
+    #mdd {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: start !important;
+      width: 100% !important;
+    }
+    #events {
+      display: none;
+    }
+}
+#togglebtn{
+  background-color: rgb(60, 101, 245);
+    border: none;
+    padding: 10px 16px;
+    color: white;
+    font-size: 16px;
+    border-radius: 8px;
+    font-weight: 600;
+}
