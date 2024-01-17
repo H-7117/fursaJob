@@ -53,7 +53,7 @@
                       <ul class="dropdown-menu">
                           <li><a class="dropdown-item"href="{{ route('companySignUp.view') }}">سجل كا سجل كمنظمه</a></li>
                           <li><hr class="dropdown-divider"></li>
-                          <li><a class="dropdown-item"href="{{ route('account.front.signup') }}">سجل كا باحث</a></li>
+                          <li><a class="dropdown-item"href="{{ route('signAsUser.index') }}">سجل كا باحث</a></li>
                       </ul>
                     </div>
                     هل ليس لديك حساب؟

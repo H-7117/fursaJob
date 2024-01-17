@@ -220,22 +220,36 @@
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             @php
-              $tenant = Account::getTenantId();
-              $company = App\Models\Fursa\FursaCompany::find($tenant);
+              $tenantId = Account::getTenantId();
+              $company = null;
+              if(Account::getTenantName() != "app"){
+              $company = App\Models\Fursa\FursaCompany::find($tenantId);
+              }
+              $user = Auth::user();
             @endphp
+            @if ($company != null)
+              
+            
             <img src="{{ asset('uploads/companies/'.$company->logo) }}" alt="Profile" class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle pe-2">{{ $company->name }}</span>
+            @else
+            <img src="{{ asset('uploads/companies/app/fursa.png') }}" alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle pe-2">{{ $user->username }}</span>
+            @endif
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            @if ($company != null)
             <li class="dropdown-header">
-              @php
+              {{-- @php
               $tenant = Account::getTenantId();
               $company = App\Models\Fursa\FursaCompany::find($tenant);
-            @endphp
+            @endphp --}}
+            
               <h6>{{ $company->name }}</h6>
               <span>{{ $company->label }}</span>
-            </li>
+            </li>            
+            @endif
             <li>
               <hr class="dropdown-divider">
             </li>
@@ -492,6 +506,7 @@
       
       {{-- |||||||||||||||||||||||||||||||||||||||| --}}
       {{-- Start User Section --}}
+      @if (Account::getTenantName() === "app")
       <li class="nav-item">
         <i class="bi bi-person-gear"></i>
         <span>المستخدم</span>
@@ -503,6 +518,7 @@
           <i class="bi bi-people"></i><span>الوظائف</span>
         </a>
       </li><!-- End Forms Nav -->
+      @endif
       {{-- End User Section --}}
       {{-- |||||||||||||||||||||||||||||||||||||||| --}}
 

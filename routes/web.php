@@ -20,6 +20,7 @@ use App\Http\Controllers\Fursa\JobApplcationController;
 use App\Http\Controllers\Fursa\JobController;
 use App\Http\Controllers\Fursa\JobPostingController;
 use App\Http\Controllers\Fursa\JobStageController;
+use App\Http\Controllers\Fursa\SignUpUsUserController;
 use App\Http\Controllers\Fursa\SingUpCompanyController;
 use App\Http\Controllers\Fursa\WorkFlowController;
 
@@ -45,6 +46,8 @@ Route::get('/signup/company', [SignupController::class, 'views'])->name('account
 Route::get('sign/create',[SingUpCompanyController::class,'view'])->name('companySignUp.view');
 Route::post('sign/store',[SingUpCompanyController::class,'store'])->name('companySignUp.store');
 //
+Route::get('/signAsUser',[SignUpUsUserController::class,'index'])->name('signAsUser.index');
+Route::post('/signAsUser/store',[SignUpUsUserController::class,'store'])->name('signAsUser.store');
 Route::post('/signup', [SignupController::class, 'store']);
 
 

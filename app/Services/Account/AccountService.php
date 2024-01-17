@@ -108,7 +108,7 @@ class AccountService
         return $output;
     }
 
-    public function singnUp(string $username, string $email, string $password): AccountUser
+    public function signUp(string $username, string $email, string $password): AccountUser
     {
         $tenant = AccountTenant::where('name','app')->first();
         $user = AccountUser::create([

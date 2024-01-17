@@ -12,9 +12,13 @@
 
         <div class="form-side col-6 col-md-6 col-sm-12">
            
-            <form class="my-form">
-               
+            <form action="{{ route('signAsUser.store') }}" method="POST" class="my-form">
+               @csrf
      
+               @if (request()->filled('tenant'))
+               <input class="form-control" type="hidden" name="tenant" value="{{ request()->input('tenant') }}">
+               @endif
+               
                 <div class="text-field">
                     <label for="username">: اسم المستخدم
                     </label>
