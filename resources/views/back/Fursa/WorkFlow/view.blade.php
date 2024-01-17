@@ -8,7 +8,7 @@
   <section class="section profile">
     <div class="row">
       <div class="col-xl-12">
-{{--  --}}
+
         <form action="{{ route('wrokflow.update') }}" method="POST">
             @csrf
         @method('put')

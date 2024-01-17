@@ -59,7 +59,8 @@ Route::get('/jobPost',function(){
 //
 Route::middleware('auth')->group(function () {
     Route::get('/user/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard.user');
-    Route::get('/platform/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard.platform');
+    Route::get('/platform/dashboard', [DashboardController::class, 'dashboardPlatform'])->name('dashboard.platform');
+    Route::get('/platform/tenant', [DashboardController::class, 'dashboardTanant'])->name('dashboard.tenant');
     //
     Route::post('/signout', [SignoutController::class, 'signout'])->name('account.back.signout');
 //

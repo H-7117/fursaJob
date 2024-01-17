@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Fursa;
 
-use App\Facades\Account\AccountFacade;
 use App\Http\Controllers\Controller;
+use App\Models\Account\AccountUser;
+use App\Models\Fursa\FursaJob;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-class SignUpUsUserController extends Controller
+
+class dashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +16,8 @@ class SignUpUsUserController extends Controller
     public function index()
     {
         //
-        return view('front.account.signup');
+        
+        return view('back.dashboard.user',compact('job'));
     }
 
     /**
@@ -24,7 +26,6 @@ class SignUpUsUserController extends Controller
     public function create()
     {
         //
-        
     }
 
     /**
@@ -33,10 +34,6 @@ class SignUpUsUserController extends Controller
     public function store(Request $request)
     {
         //
-        $username =  $request->input('username');
-        $email = $request->input('email');
-        $password = $request->input('password'); 
-        $tenant = AccountFacade::signUp($username, $email, $password);
     }
 
     /**
@@ -47,17 +44,6 @@ class SignUpUsUserController extends Controller
         //
     }
 
-    public function view(){
-        $id = Auth::id();
-        $jobStages = DB::table('job_stages')
-        ->join('fursa__jobs', 'job_stages.job_id', '=', 'fursa__jobs.id')
-        ->join('fursa__applicants', 'fursa__applicants.id', '=', 'job_stages.fursa__applicant_id')
-        ->select('job_stages.name as job_stage_name', 'fursa__jobs.label as fursa_job_label')
-        ->where('fursa__applicants.user_id', '=', $id)
-        ->get();
-        
-        return view('back.Fursa.user.index',['jobStages' => $jobStages]);
-    }
     /**
      * Show the form for editing the specified resource.
      */

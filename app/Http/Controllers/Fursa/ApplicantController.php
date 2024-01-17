@@ -38,7 +38,7 @@ class ApplicantController extends Controller
                 $jobApplcation[] =FursaJobApplcation::where('job_id',$jobs->id)->get();
             }
         }
-// return $jobApplcation;
+    // return $jobApplcation;
         $jobApplicant = [];
         foreach($jobApplcation as  $applicants){
             foreach($applicants as $applicant){
@@ -53,18 +53,7 @@ class ApplicantController extends Controller
             }
         }
 
-        // return $jobApplicant;
-        
-        // $applicants = DB::table('fursa__applicants')
-        // ->join('fursa__job_applcations', 'fursa__applicants.job_application_id', '=', 'fursa__job_applcations.id')
-        // ->join('fursa__jobs', 'fursa__job_applcations.job_id', '=', 'fursa__jobs.id')
-        // ->select('fursa__applicants.*', 'fursa__jobs.label')
-        // ->where('fursa__job_applcations.id', $jobApplcation[0]->id)
-        // ->get();
-        
-        // $applicants = FursaApplicant::where('job_application_id',$jobApplcation[0]->id)->get();
-        // return $applicants;
-        // $applicants = FursaApplicant::paginate(1);
+       
         return view('back.fursa.applicants.index',compact('jobApplicant'));
         
     }

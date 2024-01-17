@@ -31,7 +31,7 @@
             <tbody>
                 @foreach ($jobStages as $jobStage)
                 <tr>
-                <td>{{ $jobStage->fursa_job_name }}</td>
+                <td >{{ $jobStage->fursa_job_label }}</td>
                 <td>{{ $jobStage->job_stage_name }}</td>
             </tr>
             @endforeach
