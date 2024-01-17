@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Fursa;
 use App\Facades\Account\AccountFacade;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 class SignUpUsUserController extends Controller
 {
     /**
@@ -46,6 +47,17 @@ class SignUpUsUserController extends Controller
         //
     }
 
+    public function view(){
+        $id = Auth::id();
+        $jobStages = DB::table('job_stages')
+        ->join('fursa__jobs', 'job_stages.job_id', '=', 'fursa__jobs.id')
+        ->join('fursa__applicants', 'fursa__applicants.id', '=', 'job_stages.fursa__applicant_id')
+        ->select('job_stages.name as job_stage_name', 'fursa__jobs.name as fursa_job_name')
+        ->where('fursa__applicants.user_id', '=', $id)
+        ->get();
+        
+        return view('back.Fursa.user.index',['jobStages' => $jobStages]);
+    }
     /**
      * Show the form for editing the specified resource.
      */

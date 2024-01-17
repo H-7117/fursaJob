@@ -48,6 +48,7 @@ Route::post('sign/store',[SingUpCompanyController::class,'store'])->name('compan
 //
 Route::get('/signAsUser',[SignUpUsUserController::class,'index'])->name('signAsUser.index');
 Route::post('/signAsUser/store',[SignUpUsUserController::class,'store'])->name('signAsUser.store');
+//
 Route::post('/signup', [SignupController::class, 'store']);
 
 
@@ -122,6 +123,9 @@ Route::middleware('auth')->group(function () {
     Route::get('compaines/wrokflow',[WorkFlowController::class,'index'])->name('wrokflow.index');
     Route::get('compaines/wrokflow/{id}',[WorkFlowController::class,'show'])->name('wrokflow.show');
     Route::put('compaines/wrokflow/update',[WorkFlowController::class,'update'])->name('wrokflow.update');
+
+    //
+    Route::get('user/view',[SignUpUsUserController::class,'view'])->name('user.jobApplied');
     
 });
 Route::get('compaines/jobPoting',[JobPostingController::class,'index'])->name('jobPoting.index');
