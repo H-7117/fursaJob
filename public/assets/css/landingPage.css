@@ -1928,3 +1928,17 @@
 .page_notFound a:hover{
   color: white;
 }
+page-link
+.pagination .page-link {
+
+  border-top-right-radius: 10% !important;
+  border-bottom-right-radius: 10% !important;
+  border-top-left-radius: 10% !important;
+  border-bottom-left-radius: 10% !important;
+}
+.pagination li a.page-link{
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+}

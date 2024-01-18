@@ -43,14 +43,13 @@ class JobStageController extends Controller
         $JobStage = [];
         foreach($job_depertments as  $job){
             foreach($job as $jobs){
-                $JobStage[] = JobStage::where('job_id',$jobs->id)->get();
+                $JobStage[] = JobStage::where('job_id',$jobs->id)->paginate(2);
                
             }
         }
 
-        // return $JobStage;
 
-        // $JobStage = JobStage::where('job_id',$jobs[0]->id)->get();
+        // return $JobStage;
         
         return view('back.fursa.jobstage.index',compact('JobStage'));
     }

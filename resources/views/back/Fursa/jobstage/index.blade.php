@@ -44,8 +44,38 @@
               @endforeach
             </tbody>
           </table>
-          <!-- End Table with stripped rows -->
-          {{-- @include('common.pagination', ['paginator' => $depertments]) --}}
+          <div class="pagination">
+            <ul class="pagination justify-content-center">
+                @if ($JobStage[0]->onFirstPage())
+                    <li class="page-item disabled">
+                        <span class="page-link">&laquo;</span>
+                    </li>
+                @else
+                    <li class="page-item">
+                        <a class="page-link" href="{{ $JobStage[0]->previousPageUrl() }}" rel="prev">&laquo;</a>
+                    </li>
+                @endif
+                @foreach ($JobStage[0]->getUrlRange(1, $JobStage[0]->lastPage()) as $page => $url)
+                    <li class="page-item {{ $page == $JobStage[0]->currentPage() ? 'active' : '' }}">
+                        <a class="page-link" href="{{ $url }}">{{ $page }}</a>
+                    </li>
+                @endforeach
+                @if ($JobStage[0]->hasMorePages())
+                    <li class="page-item">
+                        <a class="page-link" href="{{ $JobStage[0]->nextPageUrl() }}" rel="next">&raquo;</a>
+                    </li>
+                @else
+                    <li class="page-item disabled">
+                        <span class="page-link">&raquo;</span>
+                    </li>
+                @endif
+            </ul>
+        </div>
+
+        <!-- Pagination label -->
+        <div class="pagination-label">
+            Page {{ $JobStage[0]->currentPage() }} of {{ $JobStage[0]->lastPage() }}
+      </div>
         </div>
       </div>
 

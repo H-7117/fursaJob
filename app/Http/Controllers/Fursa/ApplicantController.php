@@ -49,7 +49,7 @@ class ApplicantController extends Controller
                     ->join('fursa__jobs', 'fursa__job_applcations.job_id', '=', 'fursa__jobs.id')
                     ->select('fursa__applicants.*', 'fursa__jobs.label')
                     ->where('fursa__job_applcations.id', $applicant->id)
-                    ->get();
+                    ->paginate(2);
             }
         }
 

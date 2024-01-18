@@ -71,12 +71,43 @@
                   @endforeach
                  
           
-   
+                  
                 
                 </tbody>
               </table>
               <!-- End Table with stripped rows -->
-
+              <div class="pagination">
+                <ul class="pagination justify-content-center">
+                    @if ($jobApplcation[0]->onFirstPage())
+                        <li class="page-item disabled">
+                            <span class="page-link">&laquo;</span>
+                        </li>
+                    @else
+                        <li class="page-item">
+                            <a class="page-link" href="{{ $jobApplcation[0]->previousPageUrl() }}" rel="prev">&laquo;</a>
+                        </li>
+                    @endif
+                    @foreach ($jobApplcation[0]->getUrlRange(1, $jobApplcation[0]->lastPage()) as $page => $url)
+                        <li class="page-item {{ $page == $jobApplcation[0]->currentPage() ? 'active' : '' }}">
+                            <a class="page-link" href="{{ $url }}">{{ $page }}</a>
+                        </li>
+                    @endforeach
+                    @if ($jobApplcation[0]->hasMorePages())
+                        <li class="page-item">
+                            <a class="page-link" href="{{ $jobApplcation[0]->nextPageUrl() }}" rel="next">&raquo;</a>
+                        </li>
+                    @else
+                        <li class="page-item disabled">
+                            <span class="page-link">&raquo;</span>
+                        </li>
+                    @endif
+                </ul>
+            </div>
+    
+            <!-- Pagination label -->
+            <div class="pagination-label">
+                Page {{ $jobApplcation[0]->currentPage() }} of {{ $jobApplcation[0]->lastPage() }}
+          </div>
             </div>
           </div>
 

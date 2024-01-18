@@ -1,5 +1,5 @@
 @if ($paginator->lastPage() > 1)
-    <ul class="pagination">
+    <ul class="pagination" >
         <li class="btn btn-large {{ ($paginator->currentPage() == 1) ? 'disabled' : '' }}">
             <a href="{{ $paginator->url(1) }}">البداية</a>
         </li>

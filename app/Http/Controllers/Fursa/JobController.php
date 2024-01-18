@@ -26,10 +26,9 @@ class JobController extends Controller
         // return $depertments;
         $job_depertments = [];
         foreach($depertments as $depertment){
-            $job_depertments[] = $jobs = FursaJob::where('depertment_id',$depertment->id)->get();
+            $job_depertments[] = $jobs = FursaJob::where('depertment_id',$depertment->id)->paginate(2);
         }
-        // return $job_depertments;
-        // return $jobs;
+    //    return $job_depertments;
         return view('back.Fursa.job.index',compact('job_depertments'));
     }
 

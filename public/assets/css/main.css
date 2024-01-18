@@ -108,3 +108,16 @@ ul .nav-item  .nav-link i{
 .sidebar-nav .nav-content a i {
     margin-right: 8px;
 }
+.pagination{
+    float: left;
+    font-family: "Tajawal" !important;
+}
+.pagination .page-item a {
+    font-family: "Tajawal" !important;
+}
+.pagination .page-item:first-child{
+    transform: rotate(180deg) !important;
+  }
+  .pagination .page-item:last-child{
+    transform: rotate(180deg) !important;
+  }

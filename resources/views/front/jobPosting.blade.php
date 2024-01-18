@@ -38,11 +38,12 @@
                             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                                 aria-label="Close"></button>
                         </div>
-
+                        <form  action="{{ route('jobPoting.index') }}" method="GET" id="search-form">
+                            <div class="row" id="mdd" style="width: 102%; display: flex; flex-direction: row-reverse">
                         <div id="inseid-toggler" class="m-3" dir="rtl">
                             <div>
                                 <label for="" style="font-weight: 900; margin-bottom: 10px">بحث</label>
-                                <input class="form-control" type="text" id="filter-search" />
+                                <input class="form-control" type="text" value="<?= $_GET['label'] ?? '' ?>" id="filter-search" />
                             </div>
                             <div class="mt-3">
                                 <h3>التصنيف</h3>
@@ -87,47 +88,51 @@
                    
                 </div>
             </div>
-
+        </form>
             <!-- ==================================================================================== -->
 
+            <form  action="{{ route('jobPoting.index') }}" method="GET" id="search-form">
             <div class="row" id="mdd" style="width: 102%; display: flex; flex-direction: row-reverse">
+
                 <!-- ===================== -->
+
                 <div class="mt-5 col-12 col-lg-3 col-md-3 col-sm-12 left-filter">
                     <div>
                         <label for="" style="font-weight: 900; margin-bottom: 10px">بحث</label>
-                        <input class="form-control" type="text" id="filter-search" />
+                        <input class="form-control" type="text" name="label" value="<?= $_GET['label'] ?? '' ?>"   id="filter-search" />
                     </div>
 
                     <div class="mt-3">
                         <h3>التصنيف</h3>
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" role="switch"
-                                id="flexSwitchCheckDefault" />
-                            <label class="form-check-label" for="flexSwitchCheckDefault">برمجة وتطوير</label>
+                            <input class="form-check-input" type="checkbox" role="switch" id="checkbox-programming" value="برمجة-وتطوير" name="Category" />
+                            <label class="form-check-label" for="checkbox-programming">برمجة وتطوير</label>
                         </div>
+
+
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" role="switch"
-                                id="flexSwitchCheckDefault" />
+                                id="flexSwitchCheckDefault" value="تسويق-ومبيعات" name="Category"/>
                             <label class="form-check-label" for="flexSwitchCheckDefault">تسويق ومبيعات</label>
                         </div>
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" role="switch"
-                                id="flexSwitchCheckDefault" />
+                                id="flexSwitchCheckDefault" value="كتابة-وترجمة" name="Category"/>
                             <label class="form-check-label" for="flexSwitchCheckDefault">كتابة وترجمة</label>
                         </div>
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" role="switch"
-                                id="flexSwitchCheckDefault" />
+                                id="flexSwitchCheckDefault" value="تصميم" name="Category"/>
                             <label class="form-check-label" for="flexSwitchCheckDefault">تصميم</label>
                         </div>
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" role="switch"
-                                id="flexSwitchCheckDefault" />
+                                id="flexSwitchCheckDefault" value="إدارة-وأعمال"  name="Category"/>
                             <label class="form-check-label" for="flexSwitchCheckDefault">إدارة وأعمال</label>
                         </div>
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" role="switch"
-                                id="flexSwitchCheckDefault" />
+                                id="flexSwitchCheckDefault" value="دعم-فني"  name="Category"/>
                             <label class="form-check-label" for="flexSwitchCheckDefault">دعم فني</label>
                         </div>
                         <div class="form-check form-switch">
@@ -137,6 +142,8 @@
                         </div>
                     </div>
                 </div>
+            </form>
+
 
                 <!-- =========================================================================================== -->
                 <div class="mt-5 col-lg-9 col-9 col-md-9 col-sm-12" >
@@ -203,20 +210,48 @@
                     @endforeach
                     @endif
                 </div>
-                
+                <div class="d-flex justify-content-center" dir="rtl">
+                    {{ $jobs->links('common.pagination') }} 
+                </div>
+
             </div>
+
+
+            
+
+
+
         </div>
     </div>
+    <script src="{{ asset('assets/js/jquery-3.7.1.min.js') }}"></script>
     <script>
+
+        
+
+  
+      $(document).ready(function () {
+            $('#search-form').submit(function (event) {
+                event.preventDefault(); 
+
+                var searchValue = $('#filter-search').val();
+
+                window.location.href = "{{ route('jobPoting.index') }}?label=" + encodeURIComponent(searchValue);
+            });
+        });
+
+
          const jobListings = document.querySelectorAll('#job-listings');
 
-jobListings.forEach((listing) => {
-  const status = listing.dataset.status;
+        jobListings.forEach((listing) => {
+          const status = listing.dataset.status;
+        
+          if (status === '1') {
+            listing.style.display = 'none';
+          }
+        });
 
-  if (status === '1') {
-    listing.style.display = 'none';
-  }
-});
+
+    
     </script>
 </body>
 @endsection

@@ -35,7 +35,7 @@ class JobApplcationController extends Controller
         foreach($job_depertments as  $job){
             foreach($job as $jobs){
 
-                $jobApplcation[] =FursaJobApplcation::where('job_id',$jobs->id)->get();
+                $jobApplcation[] =FursaJobApplcation::where('job_id',$jobs->id)->paginate(2);
             }
         }
 

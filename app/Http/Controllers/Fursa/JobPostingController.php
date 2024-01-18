@@ -49,7 +49,10 @@ class JobPostingController extends Controller
             $jobs->where('fursa__jobs.label', 'like', '%' . $jobTitle . '%');
         }
         
-        $jobs = $jobs->get();
+        $jobs = $jobs->paginate(10); 
+        
+        
+        
         return view("front.jobPosting", compact("jobs"));
 
     }
