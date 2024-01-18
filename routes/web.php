@@ -127,8 +127,11 @@ Route::middleware('auth')->group(function () {
 
     //
     Route::get('user/view',[SignUpUsUserController::class,'view'])->name('user.jobApplied');
-    
+   
 });
 Route::get('compaines/jobPoting',[JobPostingController::class,'index'])->name('jobPoting.index');
 Route::get('compaines/jobPoting/{id}',[JobPostingController::class,'show'])->name('jobPoting.show');
 Route::get('compaines/jobPApplicant/{id}',[JobPostingController::class,'create'])->name('jobPoting.create');
+Route::fallback(function () {
+    return view('errors.404');
+});

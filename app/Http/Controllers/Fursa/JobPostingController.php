@@ -15,27 +15,41 @@ class JobPostingController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        
      
+        $category = $request->input('Category');
+        $location = $request->input('Location');
+        $jobTitle = $request->input('label');
+        
         $jobs = FursaJob::select(
-            'fursa__jobs.*',
-            'fursa__depertments.id as department_id',
-            'fursa__depertments.name as department_name',
-            'fursa__depertments.label as department_label',
-            'fursa__companies.id as company_id',
-            'fursa__companies.name as company_name',
-            'fursa__companies.label as company_label',
-            'fursa__companies.logo as company_logo'
-        )
-        ->join('fursa__depertments', 'fursa__depertments.id', '=', 'fursa__jobs.depertment_id')
-        ->join('fursa__companies', 'fursa__companies.id', '=', 'fursa__depertments.company_id')
-        ->whereColumn('fursa__depertments.id', '=', 'fursa__jobs.depertment_id')
-        ->whereColumn('fursa__companies.id', '=', 'fursa__depertments.company_id')
-        ->get();
-        // return $jobs;
+                'fursa__jobs.*',
+                'fursa__depertments.id as department_id',
+                'fursa__depertments.name as department_name',
+                'fursa__depertments.label as department_label',
+                'fursa__companies.id as company_id',
+                'fursa__companies.name as company_name',
+                'fursa__companies.label as company_label',
+                'fursa__companies.logo as company_logo'
+            )
+            ->join('fursa__depertments', 'fursa__depertments.id', '=', 'fursa__jobs.depertment_id')
+            ->join('fursa__companies', 'fursa__companies.id', '=', 'fursa__depertments.company_id')
+            ->whereColumn('fursa__depertments.id', '=', 'fursa__jobs.depertment_id');
+        
+        if ($category) {
+            $jobs->where('fursa__jobs.Category', $category);
+        }
+        
+        if ($location) {
+            $jobs->where('fursa__jobs.Location', '=', $location);
+        }
+        
+        if ($jobTitle) {
+            $jobs->where('fursa__jobs.label', 'like', '%' . $jobTitle . '%');
+        }
+        
+        $jobs = $jobs->get();
         return view("front.jobPosting", compact("jobs"));
 
     }

@@ -48,7 +48,22 @@
           @csrf
           <button><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
         </form>
-        <a href="{{route('dashboard.user') }}">لوحه التحكم</a>
+        @php
+              $tenantId = Account::getTenantId();
+              $company = null;
+              if(Account::getTenantName() != "app"){
+              $company = App\Models\Fursa\FursaCompany::find($tenantId);
+              }
+              $user = Auth::user();
+            @endphp
+            @if ($company != null)
+              
+            
+            <a href="{{route('dashboard.tenant') }}">لوحه التحكم</a>
+            @else
+            <a href="{{route('user.jobApplied') }}">لوحه التحكم</a>
+            @endif
+        
       </div>
       @endif
       

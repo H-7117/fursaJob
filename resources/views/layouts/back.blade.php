@@ -53,8 +53,8 @@
 
     <div class="d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
-        <h1 class="pt-3 px-4">
-          <img src="{{ asset('/assets/img/logo22.png') }}" alt="">
+        <h1 class="pt-1 px-5">
+          <img src="{{ asset('/assets/img/logo4.png') }}" width="100px" width="150px" alt="">
         </h1>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -89,11 +89,14 @@
             @endphp
             @if ($company != null)
               
-            
-            <img src="{{ asset('uploads/companies/'.$company->logo) }}" alt="Profile" class="rounded-circle">
+            <div style=" border-radius: 50% ; display: flex;justify-content: center; align-content: center">
+              <img style="width: 40px;height: 40px;" src="{{ asset('uploads/companies/'.$company->logo) }}" alt="Profile"  class="rounded-circle">
+            </div>
             <span class="d-none d-md-block dropdown-toggle pe-2">{{ $company->name }}</span>
             @else
-            <img src="{{ asset('uploads/app/logo22.png') }}" alt="Profile" class="rounded-circle">
+            <div style=" border-radius: 50% ; display: flex;justify-content: center; align-content: center">
+              <img style="width: 40px;height: 40px;" src="{{ asset('uploads/app/logo22.png') }}" alt="Profile" class="rounded-circle">
+            </div>
             <span class="d-none d-md-block dropdown-toggle pe-2">{{ $user->username }}</span>
             @endif
           </a><!-- End Profile Iamge Icon -->
@@ -114,39 +117,18 @@
               <hr class="dropdown-divider">
             </li>
 
+            
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="{{ route('tenant.index') }}">
-                <i class="bi bi-person ms-2"></i>
-                <span>حسابي</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+              <a class="dropdown-item d-flex align-items-center" href="{{ route('home.front') }}">
                 <i class="bi bi-gear ms-2"></i>
-                <span>إعدادت الحساب</span>
+                <span>الصفحة الاساسيه</span>
               </a>
             </li>
             <li>
               <hr class="dropdown-divider">
             </li>
 
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
-                <i class="bi bi-question-circle ms-2"></i>
-                <span>للمساعده</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+        
 
             <li>
               <form method="post" action="{{route('account.back.signout')}}">
@@ -208,30 +190,7 @@
       </li>
       <!-- -->
       
-      {{-- 
-      <!-- -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#modules-nav" data-bs-toggle="collapse" href="">
-          <i class="bi bi-key-fill"></i>
-          <span>الوحدات</span><i class="bi bi-chevron-down me-auto"></i>
-        </a>
-        <ul id="modules-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li class="nav-item me-5" id="sidebar-navone">
-            <a class="nav-link collapsed " href="{{ route('core.back.modules.index') }}">
-              <i class="fa-solid fa-fingerprint"></i>
-              <span>الحسابات</span>
-            </a>
-          </li>
-          <li class="nav-item me-5" id="sidebar-navtwo">
-            <a class="nav-link collapsed" href="{{ route('core.back.settings.index') }}">
-              <i class="fa-solid fa-people-group"></i>
-              <span>الصناديق</span>
-            </a>
-          </li>
-        </ul>
-      </li>
-      <!-- -->
-      --}}
+    
 
       <!-- -->
       <li class="nav-item">

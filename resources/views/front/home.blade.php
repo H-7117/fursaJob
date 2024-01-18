@@ -9,39 +9,42 @@
         </h1>
         <h4>البحث عن وظائف، فرص العمل، وفرص الحياة المهنية</h4>
       </div>
+<form action="{{ route('jobPoting.index') }}" method="GET">
+
 
       <div class="search">
         <div class="first-left">
-          <select dir="rtl" name="" id="">
-            <option value="" disabled="disabled" selected="selected">
-              المجال
-            </option>
-            <option value="">1</option>
-            <option value="">1</option>
+          <select dir="rtl" name="Category" id="">
+            <option value="">المجال</option>
+            @foreach ( $Category as $Categories )
+            <option value="{{ $Categories }}">{{ $Categories }}</option>
+            @endforeach
           </select>
           <i class="fa-solid fa-briefcase"></i>
         </div>
 
         <div class="second-left">
-          <select dir="rtl" name="" id="">
-            <option value="" disabled="disabled" selected="selected">
-              الموقع
-            </option>
-            <option value="">1</option>
-            <option value="">1</option>
+          <select dir="rtl" name="Location" id="">
+            <option value="">الموقع</option>
+            @foreach ( $locations as $location )
+           
+            <option value="{{ $location }}">{{ $location }}</option>
+            @endforeach
           </select>
           <i class="fa-regular fa-map"></i>
         </div>
 
         <div class="thred-left">
-          <input dir="rtl" type="text" placeholder="الوظيفه" />
+          <input dir="rtl" type="text" name="label" placeholder="الوظيفة" />
           <i class="gg-menu-grid-o"></i>
         </div>
         <div class="btn">
-          <button>البحث</button>
+          <button type="submit">البحث</button>
           <i class="fa-solid fa-magnifying-glass"></i>
         </div>
       </div>
+    </form>
+      {{--  --}}
     </section>
 <!-- =================================================== -->
     <section class="HTA" data-aos="fade-up" data-aos-duration="1500">

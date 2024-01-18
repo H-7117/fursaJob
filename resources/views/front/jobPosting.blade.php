@@ -140,6 +140,19 @@
 
                 <!-- =========================================================================================== -->
                 <div class="mt-5 col-lg-9 col-9 col-md-9 col-sm-12" >
+                    @if ($jobs->isEmpty())
+                    <div  style="display: flex;" class=" card row mb-5 flex-lg-row flex-md-row flex-column-reverse flex-sm-row" id="job-listings"
+                        style="margin-bottom: 20px" >
+                        
+                        <div class="" id="notfound">
+                           
+                            ليس هنالك وظائف
+
+                        </div>
+                    </div>
+                @else
+                    <ul id="job-listings">
+                       
                 @foreach ($jobs as $job)
                 <a href="{{ route('jobPoting.show',$job->id)}}" style="text-decoration: none;color:#221c1c;" >
                 <div data-status="{{ $job->status }}" style="display: flex" class=" card row mb-5 flex-lg-row flex-md-row flex-column-reverse flex-sm-row" id="job-listings"
@@ -188,8 +201,9 @@
                     </div>
                 </a>
                     @endforeach
+                    @endif
                 </div>
-               
+                
             </div>
         </div>
     </div>
