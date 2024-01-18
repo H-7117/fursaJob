@@ -18,19 +18,20 @@
           <input type="text" name="label" class="form-control" placeholder="الاسم القسم">
       </div>
       
-      <select class="form-control" name="company_id" id="">
-        @foreach ($Company as $Companies)
-        <option class="" value="{{ $Companies->id }}">
-            {{ $Companies->label }}
-        </option>
-      @endforeach
+    
+        @php
+              $tenantId = Account::getTenantId();
+        @endphp
+       
+       <input type="text" hidden value="{{ $tenantId }}">
+    
         
-      </select>
+    
       <div class="col-md-12">
           <textarea class="form-control" name="description" rows="6" placeholder="عن القسم"></textarea>
       </div>
       <div class="col-md-12 text-start">
-          <input type="submit" class="create" />
+          <button type="submit" class="create" >حفظ</button>
       </div> 
   </div>
 </form>

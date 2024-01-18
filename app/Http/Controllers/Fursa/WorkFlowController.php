@@ -152,7 +152,7 @@ class WorkFlowController extends Controller
 
             }
         }
-        return redirect()->back();
+        return redirect()->back()->withSuccess("تم تحديث حاله المتقدم الى $nextStageName ");
     }
 
     /**

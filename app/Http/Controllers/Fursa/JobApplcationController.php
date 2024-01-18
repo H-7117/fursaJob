@@ -60,7 +60,7 @@ class JobApplcationController extends Controller
     {
         //
         if (!$this->jobApplcationService->store($request)) {
-            return redirect()->route('companiesJob.index');
+            return redirect()->route('companiesJob.index')->withSuccess('تم انشاء وظيفه بنجاح');
         }
         
         return redirect()->back()->withErrors('لم تتم عمليه الحفظ');

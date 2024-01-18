@@ -37,12 +37,21 @@
           <li><a href="{{ route('jobPoting.index') }}">بحث عن وظيفه</a></li>
         </ol>
       </div>
-      {{-- @if(Auth::check()) --}}
+      @if(!Auth::check())
       <div class="Login_register">
         <button><a href="{{route('account.front.signup')}}">حساب جديد</a></button>
         <a href="{{route('account.front.signin') }}">دخـــول</a>
       </div>
-      {{-- @endif --}}
+      @else
+      <div class="Login_register">
+        <form method="post" action="{{route('account.back.signout')}}">
+          @csrf
+          <button><i class="fa-solid fa-arrow-right-from-bracket"></i></button>
+        </form>
+        <a href="{{route('dashboard.user') }}">لوحه التحكم</a>
+      </div>
+      @endif
+      
     </header>
 
 

@@ -52,7 +52,7 @@ class DepertmentController extends Controller
             ]
         );
  
-    return redirect()->route('depertment.index');
+    return redirect()->route('depertment.index')->withSuccess('تم انشاء قطاع جديد بنجاح');
     }
 
     /**

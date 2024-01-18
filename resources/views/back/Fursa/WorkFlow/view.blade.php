@@ -22,7 +22,7 @@
             
                 <div class="row">
 
-                    <div class="" style="display: flex; flex-wrap: wrap; gap:1.5rem" >
+                    <div class="" style="display: flex; flex-wrap: wrap; gap:1.5rem; "  >
                       @foreach ($uniqueNames as $name => $applicants)
                       <div class="col-3">
                         <table>

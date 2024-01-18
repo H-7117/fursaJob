@@ -30,8 +30,9 @@
   <link href="{{asset('assets/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
   <link href="{{asset('assets/vendor/simple-datatables/style.css')}}" rel="stylesheet">
   <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.1.0/uicons-thin-straight/css/uicons-thin-straight.css'>
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
   <!-- Template Main CSS File -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
   <link href="{{asset('assets/css/main.css')}}" rel="stylesheet">
     <script src="https://cdn.ckeditor.com/ckeditor5/40.2.0/classic/ckeditor.js"></script>
@@ -351,7 +352,7 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed"  href="{{ route('wrokflow.index') }}">
-            <i class="bi bi-grid"></i>
+          <i class="fa-solid fa-clipboard-user"></i>
             <span>الشواغر</span>
         </a>
       </li><!-- End Components Nav -->
@@ -419,8 +420,46 @@
   <script src="{{asset('assets/vendor/php-email-form/validate.js')}}"></script>
 
   <!-- Template Main JS File -->
+  <script src="{{asset('assets/js/jquery-3.7.1.min.js')}}"></script>
   <script src="{{asset('assets/js/main.js')}}"></script>
- 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    toastr.options = {
+      "closeButton": true,
+      "debug": false,
+      "newestOnTop": false,
+      "progressBar": false,
+      "positionClass": "toast-bottom-left",
+      "preventDuplicates": false,
+      "onclick": null,
+      "showDuration": "300",
+      "hideDuration": "1000",
+      "timeOut": "5000",
+      "extendedTimeOut": "1000",
+      "showEasing": "swing",
+      "hideEasing": "linear",
+      "showMethod": "fadeIn",
+      "hideMethod": "fadeOut"
+    }
+    @if (Session::has('error'))
+
+        toastr.error("{{ Session::get('error') }}");
+        {{ session()->forget('error') }}
+    @elseif (Session::has('success'))
+
+        toastr.success("{{ Session::get('success') }}");
+        {{ session()->forget('success') }}
+    @elseif (Session::has('info'))
+
+        toastr.info("{{ Session::get('info') }}");
+        {{ session()->forget('info') }}
+    @elseif (Session::has('wrning'))
+
+        toastr.warning("{{ Session::get('warning') }}");
+        {{ session()->forget('warning') }}
+    @endif
+    </script>
+        
 </body>
 
 </html>

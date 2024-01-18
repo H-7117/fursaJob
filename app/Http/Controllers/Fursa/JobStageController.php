@@ -86,8 +86,9 @@ class JobStageController extends Controller
         foreach ($request->inputs as $key => $value) {
             $value['job_id'] = $request->job_id;
             JobStage::create($value);
+           
+            return redirect()->route('jobStage.index')->withSuccess(" تم اضافه المرحله  $value[name]");
         }
-        return redirect()->route('jobStage.index');
         
     }
 

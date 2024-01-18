@@ -47,12 +47,12 @@ class SigninController extends Controller
             // $user = AccountUser::find($user_id);
 
             if ($tenantName === 'platform') {
-                return redirect()->route('dashboard.platform')->withSuccess('you have succesfily sign in');
+                return redirect()->route('dashboard.platform')->withSuccess('تم تسجيل الدخول بنجاح');
             }elseif ($tenantName === 'app') {
-                return redirect()->route('user.jobApplied')->withSuccess('you have succesfily sign in');
+                return redirect()->route('user.jobApplied')->withSuccess('تم تسجيل الدخول بنجاح');
             }else{
             return redirect()->route('dashboard.tenant')
-                ->withSuccess('You have successfully signed in!');
+                ->withSuccess('تم تسجيل الدخول بنجاح');
             }
         }
         
