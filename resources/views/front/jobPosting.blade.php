@@ -101,23 +101,23 @@
                         <label for="" style="font-weight: 900; margin-bottom: 10px">بحث</label>
                         <input class="form-control" type="text" name="label" value="<?= $_GET['label'] ?? '' ?>"   id="filter-search" />
                     </div>
-
+                    <button class="btn" type="search" id="felter">ابحث</button>
                     <div class="mt-3">
                         <h3>التصنيف</h3>
                         <div class="form-check form-switch">
-                            <input class="form-check-input" type="checkbox" role="switch" id="checkbox-programming" value="برمجة-وتطوير" name="Category" />
-                            <label class="form-check-label" for="checkbox-programming">برمجة وتطوير</label>
+                            <input class="form-check-input" type="checkbox" <?= $_GET['Category'] === 'برمجة وتطوير' ? 'checked' : ''?> role="switch" id="checkbox-programming" value="برمجة وتطوير" name="Category" />
+                            <label class="form-check-label"  for="checkbox-programming">برمجة وتطوير</label>
                         </div>
 
 
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" role="switch"
-                                id="flexSwitchCheckDefault" value="تسويق-ومبيعات" name="Category"/>
+                                id="flexSwitchCheckDefault" value="تسويق ومبيعات" name="Category"/>
                             <label class="form-check-label" for="flexSwitchCheckDefault">تسويق ومبيعات</label>
                         </div>
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" role="switch"
-                                id="flexSwitchCheckDefault" value="كتابة-وترجمة" name="Category"/>
+                                id="flexSwitchCheckDefault" value="كتابة وترجمة" name="Category"/>
                             <label class="form-check-label" for="flexSwitchCheckDefault">كتابة وترجمة</label>
                         </div>
                         <div class="form-check form-switch">
@@ -127,12 +127,12 @@
                         </div>
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" role="switch"
-                                id="flexSwitchCheckDefault" value="إدارة-وأعمال"  name="Category"/>
+                                id="flexSwitchCheckDefault" value="إدارة وأعمال"  name="Category"/>
                             <label class="form-check-label" for="flexSwitchCheckDefault">إدارة وأعمال</label>
                         </div>
                         <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" role="switch"
-                                id="flexSwitchCheckDefault" value="دعم-فني"  name="Category"/>
+                                id="flexSwitchCheckDefault" value="دعم فني"  name="Category"/>
                             <label class="form-check-label" for="flexSwitchCheckDefault">دعم فني</label>
                         </div>
                         <div class="form-check form-switch">
@@ -142,6 +142,7 @@
                         </div>
                     </div>
                 </div>
+                
             </form>
 
 
@@ -227,7 +228,16 @@
     <script>
 
         
+$(document).ready(function() {
+        $('input[type="checkbox"]').click(function() {
+            // Find the checked checkbox and get its value
+            var checkedValue = $('input[type="checkbox"]:checked').val();
 
+            // Append the value to the URL query string and redirect
+            var url = $('#search-form').attr('action') + '?Category=' + encodeURIComponent(checkedValue);
+            window.location.href = url;
+        });
+    });
   
       $(document).ready(function () {
             $('#search-form').submit(function (event) {
