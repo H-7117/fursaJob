@@ -104,10 +104,10 @@
                     <button class="btn" type="search" id="felter">ابحث</button>
                     <div class="mt-3">
                         <h3>التصنيف</h3>
-                        <div class="form-check form-switch">
+                        {{-- <div class="form-check form-switch">
                             <input class="form-check-input" type="checkbox" <?= $_GET['Category'] === 'برمجة وتطوير' ? 'checked' : ''?> role="switch" id="checkbox-programming" value="برمجة وتطوير" name="Category" />
                             <label class="form-check-label"  for="checkbox-programming">برمجة وتطوير</label>
-                        </div>
+                        </div> --}}
 
 
                         <div class="form-check form-switch">

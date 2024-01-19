@@ -19,13 +19,13 @@
          <input class="form-control" type="hidden" name="tenant" value="{{ request()->input('tenant') }}">
          @endif
 
-         
+{{--          
                 <div class="text-field">
                     <label for="email">: اسم الشركه
                     </label>
                     <input type="text" name="tenant" id="tenant" autocomplete="off" placeholder="ادخل اسم الشركه"
                     required>
-                </div>
+                </div> --}}
             <div class="text-field">
                 <label for="email">: اسم المستخدم
                 </label>

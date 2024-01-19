@@ -121,3 +121,22 @@ ul .nav-item  .nav-link i{
   .pagination .page-item:last-child{
     transform: rotate(180deg) !important;
   }
+
+  #stages{
+    background: #e0e7f7;
+      padding: 20px ;
+      border-radius: 8px;
+      font-weight: 700;
+  }
+
+.form-check{
+    position: relative;
+    margin-bottom: 10px;
+    background: white;
+    padding: 8px;
+    border-radius: 5px;
+}
+.form-check input{
+    position: absolute;
+    left: 30px;
+}

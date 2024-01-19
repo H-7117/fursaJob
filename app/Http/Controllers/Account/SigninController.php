@@ -35,7 +35,7 @@ class SigninController extends Controller
         {
             $tenant = $request->tenant;
         }
-        if($this->service->signIn($request->username, $request->password, $tenant)){
+        if($this->service->signIn($request->username, $request->password)){
             $request->session()->regenerate();
             //
             

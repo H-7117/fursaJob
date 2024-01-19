@@ -11,7 +11,6 @@
       </div>
 <form action="{{ route('jobPoting.index') }}" method="GET">
 
-
       <div class="search">
         <div class="first-left">
           <select dir="rtl" name="Category" id="">

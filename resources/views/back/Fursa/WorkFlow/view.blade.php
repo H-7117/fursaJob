@@ -24,15 +24,13 @@
 
                     <div class="" style="display: flex; flex-wrap: wrap; gap:1.5rem; "  >
                       @foreach ($uniqueNames as $name => $applicants)
-                      <div class="col-3">
-                        <table>
-                          <tr>
-                            <th>
-                              {{ $name }}
-                            </th>
-                          </tr>
-                        </table>
-                        
+                      <div class="col-3 " id="stages">
+                      
+                        <div class="form-check">
+                          <label class="form-check-label" for="exampleRadios1">
+                              <p>{{ $name }}</p>
+                          </label>
+                      </div>
                         @foreach ($applicants as $applicantData)
                             @if ($applicantData)
                             

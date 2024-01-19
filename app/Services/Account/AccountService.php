@@ -85,14 +85,14 @@ class AccountService
         return $user->tenant->id;
     }
 
-    public function signIn(string $username, string $password, string $tenant_name = "app") : bool
+    public function signIn(string $username, string $password) : bool
     {
         $output = false;
 
-        $tenant = AccountTenant::where('name',$tenant_name)->first();
+        // $tenant = AccountTenant::where('name',$tenant_name)->first();
         // $credentials = array($username, $password);
         $credentials = [
-            'tenant_id' => $tenant->id,
+            // 'tenant_id' => $tenant->id,
             'username' => $username,
             'password' => $password
         ];

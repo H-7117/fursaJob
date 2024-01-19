@@ -88,7 +88,7 @@
                 @foreach($groupedStages as $name => $stages)
                <div>
 
-                 <div style="line-height: 7px;width:100px; text-align: center"><p>{{$stages->count()}}</p><p>{{$name}}</p></div>
+                 <div style="line-height: 7px;width:100px; text-align: center"><p>{{$stages->count()-1}}</p><p>{{$name}}</p></div>
                  {{-- <div style="position: relative; top:-35px; width: 1px; height: 10px;background-color: #ccc"></div> --}}
                </div>
                
