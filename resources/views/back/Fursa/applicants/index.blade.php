@@ -52,7 +52,14 @@
                     <td>{{ $applicant->phone }}</td>
                     <td>{{ $applicant->personalEmail }}</td>
                     <td>{{ $applicant->links }}</td>
-                    <td><a href="{{ $applicant->cv }}" target="_blank">{{ $applicant->cv }}</a></td>
+                    <td>
+                      
+                      @if($applicant->cv)
+                        <a href="{{ asset('storage/' . $applicant->cv) }}" target="_blank">View CV</a>
+                        @else
+                            <p>No CV uploaded</p>
+                        @endif 
+                    </td>
                     {{-- <td>{{ $depertment->company->name }}</td> --}}
                     <td>
                         <button class="btn"><a href="{{ route('Applicant.show',$applicant->id) }}"><i class="bi bi-eye"></i></a></button>

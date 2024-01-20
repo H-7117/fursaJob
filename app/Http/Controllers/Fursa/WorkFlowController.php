@@ -110,7 +110,7 @@ class WorkFlowController extends Controller
        
         $uniqueNames[$name][] = $applicantData;
     }
-    
+
        return view('back.Fursa.WorkFlow.view', ['uniqueNames' => $uniqueNames]);
         
        

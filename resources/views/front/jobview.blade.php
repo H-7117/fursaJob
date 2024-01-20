@@ -1,10 +1,10 @@
 @extends('layouts.front')
 @section('content')
-<div  style="margin-top: 120px;" class="container  text-end text-dark">
+<div  style="margin-top: 120px; height: 120vh " class="container  text-end text-dark" >
     <h3 class="mt-2 mb-5">{{ $job->name }} / {{ $job->label }}</h3>
 
-    <div class="row ">
-        <div class="col-4 col-lg-4 col-md-6 col-sm-12 p-3" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;border-radius:8px;">
+    <div class="row " >
+        <div class="col-4 col-lg-4 col-md-6 col-sm-12 p-3" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;border-radius:8px; height: 46vh ">
             <div class=" row " >
                 <h3>بطاقة الوظيفة</h3>
                 <div class="border-bottom border-black mb-4"></div>

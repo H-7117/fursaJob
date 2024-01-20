@@ -18,7 +18,6 @@
                     
                         <h3>{{ $jobs_count }}</h3>
                  
-                    <i class="bi bi-cart"></i>
                   </div>
                   <div class="ps-3">
                     
@@ -43,7 +42,6 @@
                 <div class="d-flex align-items-center">
                   <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                    <h3>{{ $count }}</h3>
-                    <i class="bi bi-cart"></i>
                   </div>
                   <div class="ps-3">
                     

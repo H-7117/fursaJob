@@ -65,7 +65,7 @@
               <div class="tab-pane  fade applaction" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                 <div class="container  ">
                     <div class="card border-0 inner-cardd">
-                        <form action="{{ route('Applicant.store') }}" method="POST" role="form" class="container p-5">
+                        <form action="{{ route('Applicant.store') }}" method="POST" role="form" class="container p-5" enctype="multipart/form-data">
                           @csrf
                           <input type="text" value="{{ $jobApplcation->id }}" name="jobApplcationId" hidden>
                           <input type="text" value="{{ $jobApplcation->job_id }}" name="job_id" hidden>

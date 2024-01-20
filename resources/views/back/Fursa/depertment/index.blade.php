@@ -55,6 +55,38 @@
                   
                 </tbody>
               </table>
+              <div class="pagination">
+                <ul class="pagination justify-content-center">
+                    @if ($depertments->onFirstPage())
+                        <li class="page-item disabled">
+                            <span class="page-link">&laquo;</span>
+                        </li>
+                    @else
+                        <li class="page-item">
+                            <a class="page-link" href="{{ $depertments->previousPageUrl() }}" rel="prev">&laquo;</a>
+                        </li>
+                    @endif
+                    @foreach ($depertments->getUrlRange(1, $depertments->lastPage()) as $page => $url)
+                        <li class="page-item {{ $page == $depertments->currentPage() ? 'active' : '' }}">
+                            <a class="page-link" href="{{ $url }}">{{ $page }}</a>
+                        </li>
+                    @endforeach
+                    @if ($depertments->hasMorePages())
+                        <li class="page-item">
+                            <a class="page-link" href="{{ $depertments->nextPageUrl() }}" rel="next">&raquo;</a>
+                        </li>
+                    @else
+                        <li class="page-item disabled">
+                            <span class="page-link">&raquo;</span>
+                        </li>
+                    @endif
+                </ul>
+            </div>
+    
+            <!-- Pagination label -->
+            <div class="pagination-label">
+                Page {{ $depertments->currentPage() }} of {{ $depertments->lastPage() }}
+          </div>
               <!-- End Table with stripped rows -->
               {{-- @include('common.pagination', ['paginator' => $depertments])  --}}
             </div>

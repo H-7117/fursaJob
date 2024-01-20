@@ -18,7 +18,7 @@ class DepertmentController extends Controller
     {
         //
         $company = AccountFacade::getTenantId();
-        $depertments = FursaDepertment::where('company_id',$company)->get();
+        $depertments = FursaDepertment::where('company_id',$company)->paginate(2);
         
 
         // $depertments = FursaDepertment::paginate(1); 

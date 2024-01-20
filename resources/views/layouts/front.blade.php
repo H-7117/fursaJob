@@ -14,6 +14,7 @@
     <link rel="stylesheet" href=".{{ asset('assets/fonts/tajawal/Tajawal-Light.ttf') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/signup.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
@@ -78,7 +79,8 @@
 <script src="{{ asset('assets/js/bootstrap.bundle.js') }}"></script>
 <script src="{{ asset('assets/aos-master/dist/aos.js') }}"></script>
 <script src="{{ asset('assets/js/jquery-3.7.1.min.js') }}"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
 <script>
   AOS.init();
   $(function () {
@@ -92,7 +94,40 @@
   });
 
   
+  toastr.options = {
+      "closeButton": true,
+      "debug": false,
+      "newestOnTop": false,
+      "progressBar": false,
+      "positionClass": "toast-bottom-left",
+      "preventDuplicates": false,
+      "onclick": null,
+      "showDuration": "300",
+      "hideDuration": "1000",
+      "timeOut": "5000",
+      "extendedTimeOut": "1000",
+      "showEasing": "swing",
+      "hideEasing": "linear",
+      "showMethod": "fadeIn",
+      "hideMethod": "fadeOut"
+    }
+    @if (Session::has('error'))
 
+        toastr.error("{{ Session::get('error') }}");
+        {{ session()->forget('error') }}
+    @elseif (Session::has('success'))
+
+        toastr.success("{{ Session::get('success') }}");
+        {{ session()->forget('success') }}
+    @elseif (Session::has('info'))
+
+        toastr.info("{{ Session::get('info') }}");
+        {{ session()->forget('info') }}
+    @elseif (Session::has('wrning'))
+
+        toastr.warning("{{ Session::get('warning') }}");
+        {{ session()->forget('warning') }}
+    @endif
 
 </script>
 </body>

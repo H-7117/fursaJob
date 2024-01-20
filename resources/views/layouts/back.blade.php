@@ -243,7 +243,7 @@
         <span>المستأجر</span>
       </li>
       <!-- -->
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tenant-accounts-nav" data-bs-toggle="collapse" href="">
           <i class="bi bi-key-fill"></i>
           <span>الحسابات</span><i class="bi bi-chevron-down me-auto"></i>
@@ -262,7 +262,7 @@
             </a>
           </li>
         </ul>
-      </li>
+      </li> --}}
       <li class="nav-item">
         <a class="nav-link collapsed"   href="{{ route('depertment.index') }}" >
           <i class="fa-brands fa-squarespace"></i>

@@ -224,6 +224,34 @@
 
         </div>
     </div>
+
+    <!-- =================================== -->
+    <footer class="footer-distributed">
+        <div class="footer-left">
+          <img src="{{ asset('assets/img/logo22.png') }}" alt="" />
+          <!-- <p class="footer-company-name">فرصه © 2023</p> -->
+          <p class="footer-company-name">
+            عندما يلتقي <span>الطموح</span> بالفرص، وتُبنى قصة نجاح فريدة.
+          </p>
+  
+          <div class="footer-links">
+            <a href="#"><i class="fa-brands fa-github"></i></a>
+  
+            <a href="#"><i class="fa-brands fa-google"></i></a>
+  
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+  
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+          
+        </div>
+      </footer> 
+      <div class="end">
+        <p>
+          fursa.com © 2024 - فرصه هي كيان قانوني مسجل بموجب قوانين جمهورية اليمن.
+          كل الحقوق محفوظة
+        </p>
+      </div>    
     <script src="{{ asset('assets/js/jquery-3.7.1.min.js') }}"></script>
     <script>
 

@@ -59,7 +59,7 @@ class SingUpCompanyController extends Controller
             $company->logo = $fileName;
         }
         
-    $company->save();
+    $company->save();   
     }
 
     /**

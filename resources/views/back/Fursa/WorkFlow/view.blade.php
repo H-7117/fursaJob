@@ -24,6 +24,7 @@
 
                     <div class="" style="display: flex; flex-wrap: wrap; gap:1.5rem; "  >
                       @foreach ($uniqueNames as $name => $applicants)
+                     
                       <div class="col-3 " id="stages">
                       
                         <div class="form-check">
@@ -35,16 +36,20 @@
                             @if ($applicantData)
                             
                             
+                            {{--  --}}
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="applicant_{{ $applicantData->id }}" id="exampleRadios1" value="{{ $applicantData->id }}">
                                 <label class="form-check-label" for="exampleRadios1">
+                                  <a href="{{ route('Applicant.show',$applicantData->id) }}">
                                     <p>{{ $applicantData->name }}</p>
+                                  </a>
                                 </label>
                             </div>
 
                             @endif
                         @endforeach
                       </div>
+                      {{--  --}}
                       @endforeach
                      
                     </div>
