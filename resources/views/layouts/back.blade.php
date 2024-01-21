@@ -264,6 +264,14 @@
         </ul>
       </li> --}}
       <li class="nav-item">
+        <a class="nav-link collapsed"   href="{{ route('dashboard.tenant') }}" >
+          <i class="fa-regular fa-chart-bar"></i> 
+            <span>الاحصائيات</span>
+        </a>
+      </li><!-- End Components Nav -->
+
+
+      <li class="nav-item">
         <a class="nav-link collapsed"   href="{{ route('depertment.index') }}" >
           <i class="fa-brands fa-squarespace"></i>
             <span>الاقسام</span>
