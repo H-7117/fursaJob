@@ -48,7 +48,9 @@
       font-size: 1rem;
       color: #343a40;
     }
-
+    h6{
+      font-weight: 900 !important;
+    }
     h3 {
       margin: 0;
       font-size: 1.5rem;
@@ -109,7 +111,7 @@
                   </div>
                   <div class="ps-3 me-5" >
                     <h6>الوظائف</h6>
-                    <span class="text-success small pt-1 fw-bold">{{ $jobs_count }}</span> 
+                    <h2 class="pt-1 fw-bold">{{ $jobs_count }}</h2> 
 
                   </div>
                 </div>
@@ -133,11 +135,11 @@
          
             <div class="d-flex align-items-center">
               <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                <i class="fa-solid fa-user-tie"></i>
+                <i class="fa-solid fa-xmark"></i>
               </div>
               <div class="ps-3 me-5">
                 <h6>الوظائف المقفله</h6>
-                <span class="text-success small pt-1 fw-bold">{{ $jobsState_count }}</span> 
+                <h2 class="pt-1 fw-bold">{{ $jobsState_count }}</h2> 
 
               </div>
             </div>
@@ -162,7 +164,7 @@
                 </div>
                 <div class="ps-3 me-5">
                   <h6>المتقدمين</h6>
-                  <span class="text-success small pt-1 fw-bold">{{ $countApplcatnt }}</span> 
+                  <h2 class="pt-1 fw-bold">{{ $countApplcatnt }}</h2> 
 
                 </div>
               </div>
@@ -185,11 +187,11 @@
    
       <div class="d-flex align-items-center">
         <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-          <i class="fa-solid fa-user-tie"></i>
+          <i class="bi bi-person-fill-slash"></i>
         </div>
         <div class="ps-3 me-5">
           <h6>المرفوضين</h6>
-          <span class="text-success small pt-1 fw-bold">{{ $countApplcatnt }}</span> 
+          <h2 class="pt-1 fw-bold">{{ $countApplcatnt }}</h2> 
 
         </div>
       </div>
@@ -281,6 +283,7 @@ new Chart(ctx, {
     datasets: [{
       label: '# of Votes',
       data: counts,
+    
       borderWidth: 1
     }]
   },
