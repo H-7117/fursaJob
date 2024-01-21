@@ -13,9 +13,7 @@
     }
 
     .info-card {
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       transition: transform 0.2s;
-      margin-bottom: 20px;
     }
 
     .info-card:hover {
@@ -57,16 +55,24 @@
       font-weight: bold;
       color: #fff;
     }
-    
+    .jobLast{
+      padding: 20px ;
+    }
     .chart,.jobLast{
-      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
-    margin-bottom: 20px;
-    border-radius:8px; 
-    margin-left: 20px;
+      background: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
+      margin-bottom: 20px;
+      border-radius:8px; 
+      margin-left: 20px;
     }
     table{
-      padding: 20px
+      
+      border-radius: 8px;
+      border-spacing: 0;
+    border-collapse: separate;
+    border-radius: 10px;
+    border: 1px solid black;
     }
     .table-striped>tbody>tr:nth-child(odd)>td, 
 .table-striped>tbody>tr:nth-child(odd)>th {
@@ -75,11 +81,7 @@
   color: white
  }
 
- .top-cards,.bottom-card{
-  padding-top:20px ;
-  box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
-
- }
+ 
   </style>
 </head>
 <body>
@@ -203,7 +205,7 @@
 
 <div class="row bottom-card">
 
-  <div class="col-5 chart">
+  <div class="col-5 chart col-sm-12 col-md-12 col-lg-5 col-sm-12">
     <div class="container mt-5">
 
       <div>
@@ -216,7 +218,7 @@
 </div>
 
 
-  <div class="col-6 "> 
+  <div class="col-6 col-sm-12 col-md-12  col-lg-6 "> 
 
  
       <div class="container jobLast pb-2">
