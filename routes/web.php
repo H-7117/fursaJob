@@ -23,6 +23,7 @@ use App\Http\Controllers\Fursa\JobStageController;
 use App\Http\Controllers\Fursa\SignUpUsUserController;
 use App\Http\Controllers\Fursa\SingUpCompanyController;
 use App\Http\Controllers\Fursa\WorkFlowController;
+use App\Http\Controllers\MaillController;
 
 /*
 |--------------------------------------------------------------------------
@@ -124,10 +125,14 @@ Route::middleware('auth')->group(function () {
     Route::get('compaines/wrokflow',[WorkFlowController::class,'index'])->name('wrokflow.index');
     Route::get('compaines/wrokflow/{id}',[WorkFlowController::class,'show'])->name('wrokflow.show');
     Route::put('compaines/wrokflow/update',[WorkFlowController::class,'update'])->name('wrokflow.update');
+    Route::put('compaines/wrokflow/{id}/sendMail',[WorkFlowController::class,'sendEmails'])->name('wrokflow.sendMail');
 
     //
     Route::get('user/view',[SignUpUsUserController::class,'view'])->name('user.jobApplied');
    
+    //
+    Route::get('/maill', [MaillController::class, 'index'])->name('maill.index');
+
 });
 Route::get('compaines/jobPoting',[JobPostingController::class,'index'])->name('jobPoting.index');
 Route::get('compaines/jobPoting/{id}',[JobPostingController::class,'show'])->name('jobPoting.show');

@@ -1249,7 +1249,18 @@ h6 {
     background: #3c65f5;
     color: white;
 }
-
+.reject{
+  outline: none;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 0px 14px;    
+  border: none;
+  height: 37px;
+  margin-top: 10px;
+  width: 70px;
+  background: #f53c3c;
+  color: white;
+}
 #listTable thead tr th {
   text-align: right;
 }

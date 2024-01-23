@@ -4,14 +4,14 @@ namespace App\Http\Controllers\Fursa;
 
 use App\Facades\Account\AccountFacade;
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\MaillController;
 use App\Models\Fursa\FursaApplicant;
-use App\Models\Fursa\FursaCompany;
 use App\Models\Fursa\FursaDepertment;
 use App\Models\Fursa\FursaJob;
-use App\Models\Fursa\FursaJobApplcation;
 use App\Models\Fursa\jobStage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 class WorkFlowController extends Controller
 {
@@ -24,30 +24,7 @@ class WorkFlowController extends Controller
 
         $companyId = AccountFacade::getTenantId();
 
-    //     $data = DB::table('fursa__companies')
-    //         ->join('fursa__depertments', 'fursa__companies.id', '=', 'fursa__depertments.company_id')
-    //         ->join('fursa__jobs', 'fursa__depertments.id', '=', 'fursa__jobs.depertment_id')
-    //         ->join('job_stages', 'fursa__jobs.id', '=', 'job_stages.job_id')
-    //         ->select(
-    //             'fursa__companies.id as company_id',
-    //              'fursa__companies.name as company_name', 
-    //           'fursa__depertments.id as department_id',
-    //            'fursa__depertments.name as department_name', 
-    //           'fursa__jobs.id as job_id',
-    //            'fursa__jobs.name as job_name', 
-    //           'job_stages.name as stage_name',
-    //          DB::raw('COUNT(job_stages.name) as name_count'))
-    //         ->where('fursa__companies.id', $companyId)
-    //         ->groupBy('fursa__companies.id', 'fursa__companies.name', 'fursa__depertments.id', 'fursa__depertments.name', 'fursa__jobs.id', 'fursa__jobs.name', 'job_stages.name')
-    //         ->get();
-    //    return $data;
-        // $company = AccountFacade::getTenantId();
-        // $depertments = FursaDepertment::where('company_id',$company)->get();
-        
-        
-        // $jobs = FursaJob::where('depertment_id',$depertments[0]->id)->get();
-
-        // $jobApplcation =FursaJobApplcation::where('job_id',$jobs[0]->id)->get();
+  
         // $id =  $jobApplcation[0]->id;
         $company = AccountFacade::getTenantId();
         $depertments = FursaDepertment::where('company_id',$company)->get();
@@ -59,10 +36,7 @@ class WorkFlowController extends Controller
 
      
         
-        // return $jobs[0]->id;
-        // $jobStages= jobStage::where('job_id',$jobs[0]->id)->get();
-        // $jobs = FursaJob::with('stages')->get();
-        // return $jobs;
+        
         return view('back.Fursa.WorkFlow.index',compact('job_depertments'));
     }
 
@@ -131,27 +105,47 @@ class WorkFlowController extends Controller
     {
         $applocant_id = $request->all();  
 
-        foreach($applocant_id as $key => $value){
-            if ( Str::startsWith($key, 'applicant')) {
-                $applicants = explode('_',$key)[1];
+            foreach($applocant_id as $key => $value){
+                if ( Str::startsWith($key, 'applicant')) {
+                    $applicants = explode('_',$key)[1];
+                
+                    $jobStages = JobStage::where('fursa__applicant_id', $applicants)->get();
+
+                    foreach ($jobStages as $jobStage) {
+                        $nextRound = $jobStage->round + 1;
+
+                        $nextJobStage = JobStage::where('job_id', $jobStage->job_id)
+                                                ->where('round', $nextRound)
+                                                ->first();
+
+                        if ($nextJobStage) {
+                            $nextStageName = $nextJobStage->name;
+                            $jobStage->update(['name' => $nextStageName, 'round' => $nextRound]);
+                        }
+                    }
+                    Session::put('applicants', $applicants); // Store applicants in the session
+
+                    return redirect()->action([MaillController::class, 'index']);
+                }
+            }
+
+            if ($request->reject == 'clicked') {
+                foreach ($applocant_id as $key => $value) {
+                    if (Str::startsWith($key, 'applicant')) {
+                        $applicants = explode('_', $key)[1];
             
-                $jobStages = JobStage::where('fursa__applicant_id', $applicants)->get();
-
-                foreach ($jobStages as $jobStage) {
-                    $nextRound = $jobStage->round + 1;
-
-                    $nextJobStage = JobStage::where('job_id', $jobStage->job_id)
-                                            ->where('round', $nextRound)
-                                            ->first();
-
-                    if ($nextJobStage) {
-                        $nextStageName = $nextJobStage->name;
-                        $jobStage->update(['name' => $nextStageName, 'round' => $nextRound]);
+                        $jobStages = JobStage::where('fursa__applicant_id', $applicants)->get();
+            
+                        foreach ($jobStages as $jobStage) {
+                            $nextStageName = 'مرفوض';
+                            $nextRound = $jobStage->round;
+            
+                            $jobStage->update(['name' => $nextStageName, 'round' => $nextRound]);
+                        }
                     }
                 }
-
             }
-        }
+        
         return redirect()->back()->withSuccess("تم تحديث حاله المتقدم الى $nextStageName ");
     }
 

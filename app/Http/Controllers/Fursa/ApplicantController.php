@@ -78,13 +78,20 @@ class ApplicantController extends Controller
             $cvFileName = 'cv_' . time() . '.' . $cvExtension;
             $cvPath = $cvFile->storeAs('cv_folder', $cvFileName, 'public');
         } else {
-            // Handle case when CV file is not uploaded
-            $cvPath = null; // or provide a default value
+            $cvPath = null; 
         }
-        $applicantEmail = FursaApplicant::where('personalEmail', $request->personalEmail)->first();
-        if ($applicantEmail != null) {
-            return back()->withErrors('الايميل موجود مسبقا');
+
+
+        $jobApplicationId = $request->jobApplcationId;
+        $existingApplicant = FursaApplicant::where('job_application_id', $jobApplicationId)
+            ->where('personalEmail', $request->personalEmail)
+            ->first();
+
+        if ($existingApplicant !== null) {
+            return back()->withErrors('Email already exists for this job application');
         }
+
+        
         $applicant = FursaApplicant::create([
             'user_id' => Auth::user()->id,
             'job_application_id' => $request->jobApplcationId,

@@ -59,13 +59,7 @@ class JobStageController extends Controller
      */
     public function create()
     {
-        //
-        // $applicants = DB::table('fursa__applicants')
-        // ->join('fursa__job_applcations', 'fursa__applicants.job_application_id', '=', 'fursa__job_applcations.id')
-        // ->join('fursa__jobs', 'fursa__job_applcations.job_id', '=', 'fursa__jobs.id')
-        // ->select('fursa__applicants.*', 'fursa__jobs.label')
-        // ->get();
-        // return $applicants;
+       
         $job = FursaJob::all();
         return view('back.fursa.jobstage.create',compact('job'));
     }
@@ -75,7 +69,6 @@ class JobStageController extends Controller
      */
     public function store(Request $request)
     {
-       
         $data = $request->validate([
             'job_id' => 'required',
             'inputs.*.name' => 'required',
