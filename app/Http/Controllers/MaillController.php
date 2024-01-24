@@ -17,11 +17,13 @@ class MaillController extends Controller
         $presonalEmail =  $applicantsId->personalEmail;
 
         $cotaint = [
-            'title' => 'Mail form from hamood',
-            'body' => 'check your email'
+            'title' => 'يرجى مراجعه حسابك ',
+            'body' => 'تم تحديث حالتك يرجى مراجعه حسابك'
         ];
         Mail::to($presonalEmail)->send(new Hellail($cotaint));
 
         return redirect()->back()->withSuccess('تم ارسال الايميل بنجاح');
     }
+
+    
 }

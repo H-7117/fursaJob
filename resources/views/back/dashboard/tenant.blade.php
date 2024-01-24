@@ -191,7 +191,7 @@
         </div>
         <div class="ps-3 me-5">
           <h6>المرفوضين</h6>
-          <h2 class="pt-1 fw-bold">{{ $countApplcatnt }}</h2> 
+          <h2 class="pt-1 fw-bold">{{ $countApplcatntCount }}</h2> 
 
         </div>
       </div>

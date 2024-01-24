@@ -105,6 +105,7 @@ class WorkFlowController extends Controller
     {
         $applocant_id = $request->all();  
 
+        if ($request->update == 'upgrade') {
             foreach($applocant_id as $key => $value){
                 if ( Str::startsWith($key, 'applicant')) {
                     $applicants = explode('_',$key)[1];
@@ -123,11 +124,13 @@ class WorkFlowController extends Controller
                             $jobStage->update(['name' => $nextStageName, 'round' => $nextRound]);
                         }
                     }
-                    Session::put('applicants', $applicants); // Store applicants in the session
+                    Session::put('applicants', $applicants); 
 
                     return redirect()->action([MaillController::class, 'index']);
                 }
             }
+        }
+            
 
             if ($request->reject == 'clicked') {
                 foreach ($applocant_id as $key => $value) {
@@ -142,11 +145,15 @@ class WorkFlowController extends Controller
             
                             $jobStage->update(['name' => $nextStageName, 'round' => $nextRound]);
                         }
+                        Session::put('applicants', $applicants); 
+
+                        return redirect()->action([MaillController::class, 'index']);
                     }
+                    
                 }
             }
         
-        return redirect()->back()->withSuccess("تم تحديث حاله المتقدم الى $nextStageName ");
+        return redirect()->back()->withErrors("error");
     }
 
     /**

@@ -132,6 +132,9 @@ Route::middleware('auth')->group(function () {
    
     //
     Route::get('/maill', [MaillController::class, 'index'])->name('maill.index');
+    
+    
+    
 
 });
 Route::get('compaines/jobPoting',[JobPostingController::class,'index'])->name('jobPoting.index');

@@ -1,0 +1,58 @@
+@font-face {
+    font-family: 'Tajawal';
+    src: url('/assets/fonts/tajawal/Tajawal-Light.ttf') format('truetype');
+    /* Add additional src lines for other font variations if available */
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root{
+    --primaray--bg :#fff;
+    --primary-color: rgb(60, 101, 245);
+    --main-color: #fff;
+
+}
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Tajawal";
+}
+
+.contianer{
+width: 70%;
+margin: 0 auto;
+background-color: var(--primaray--bg);
+height: 30vh;
+text-align: center;
+}
+.contianer img{
+    width: 150px;
+    height: 100px;
+}
+
+.page_notFound{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
+  .page_notFound a{
+    z-index: 5;
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 12px 10px;
+    border: none;
+    text-decoration: none;
+    font-family: "Tajawal";
+    background: var(--primary-color);
+    color: var(--main-color);
+  }
+  .page_notFound a:hover{
+    color: white;
+  }

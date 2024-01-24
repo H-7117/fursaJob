@@ -60,8 +60,16 @@ class JobStageController extends Controller
     public function create()
     {
        
-        $job = FursaJob::all();
-        return view('back.fursa.jobstage.create',compact('job'));
+        $company = AccountFacade::getTenantId();
+        $depertments = FursaDepertment::where('company_id',$company)->get();
+        // return $depertments;
+        $job_depertments = [];
+        foreach($depertments as $depertment){
+            $job_depertments[]  = FursaJob::where('depertment_id',$depertment->id)->get();
+        }
+
+        // return $job_depertments;
+        return view('back.fursa.jobstage.create',compact('job_depertments'));
     }
 
     /**

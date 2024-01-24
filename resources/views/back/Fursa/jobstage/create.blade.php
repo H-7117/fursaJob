@@ -11,8 +11,10 @@
           @csrf
           <select name="job_id" id="" class="mb-4 form-control">
             <option value="" >الوظائف</option>
-           @foreach ($job as $jobs)
-           <option value="{{ $jobs->id }}">{{ $jobs->label }}</option>
+            @foreach ($job_depertments as $job_depertment)
+            @foreach ( $job_depertment as $job)
+           <option value="{{ $job->id }}">{{ $job->label }}</option>
+           @endforeach
            @endforeach
            
           </select>

@@ -61,7 +61,7 @@
 
             </div><!-- End Bordered Tabs -->
               <div style="display: flex;justify-content: end ; gap:5px;">
-                <button type="submit" class="create"  name="update" value="update">تحديث</button>
+                <button type="submit" class="create"  name="update" value="upgrade">تحديث</button>
                 <button type="submit" class="reject" name="reject" value="clicked" >رفض</button>
               </div>
           </div>

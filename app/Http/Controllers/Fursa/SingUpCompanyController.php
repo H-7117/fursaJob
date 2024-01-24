@@ -60,6 +60,7 @@ class SingUpCompanyController extends Controller
         }
         
     $company->save();   
+    return redirect()->route('account.front.signin')->withSuccess('تم انشاء الحساب بنجاح يرجى تسجيل الدخول');
     }
 
     /**
